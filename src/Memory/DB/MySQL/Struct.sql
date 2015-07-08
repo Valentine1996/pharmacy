@@ -8,10 +8,10 @@
  * Create database
  */
  
--- CREATE DATABASE pharmacy_finance
---     DEFAULT
---         CHARACTER SET utf8
---         COLLATE utf8_general_ci;
+CREATE DATABASE pharmacy_finance
+    DEFAULT
+        CHARACTER SET utf8
+        COLLATE utf8_general_ci;
 
 -- /**
 --  * Create a user
