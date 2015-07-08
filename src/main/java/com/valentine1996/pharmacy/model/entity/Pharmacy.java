@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 13:08:15 :: 2014-07-08 12:50:30
+ * @date 2014-07-08 13:08:15 :: 2014-07-08 13:30:30
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -22,7 +22,9 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Created by valentyn on 7/8/15.
+ * Class for reflect table pharmacy from persistence layout
+ *
+ * @version 1.0
  */
 @SuppressWarnings( "serial" )
 @Entity
@@ -35,7 +37,8 @@ import org.hibernate.validator.constraints.NotEmpty;
         }
     )
 )
-public class Pharmacy {
+public class Pharmacy implements Serializable {
+    
     /// *** Properties  *** ///
     @Id
     @GeneratedValue

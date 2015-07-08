@@ -21,7 +21,9 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 /**
- * Created by valentyn on 7/8/15.
+ * Class for reflect table distribution_way from persistence layout
+ *
+ * @version 1.0
  */
 @SuppressWarnings( "serial" )
 @Entity

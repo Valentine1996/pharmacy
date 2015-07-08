@@ -133,8 +133,6 @@ CREATE TABLE profit(
 
     year_id       BIGINT( 20 ) NOT NULL,
 
-    accounting_system_id        BIGINT( 20 ) NOT NULL,
-
     pharmacy_id   BIGINT( 20 ) NOT NULL,
 
     profit        FLOAT NOT NULL,
@@ -156,10 +154,6 @@ CREATE TABLE profit(
     PRIMARY KEY( id ),
 
     FOREIGN KEY( year_id ) REFERENCES year( id )
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT,
-
-    FOREIGN KEY( accounting_system_id ) REFERENCES accounting_system( id )
         ON UPDATE CASCADE
         ON DELETE RESTRICT,
 
