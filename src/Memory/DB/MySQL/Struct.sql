@@ -13,10 +13,10 @@ CREATE DATABASE pharmacy_finance
         CHARACTER SET utf8
         COLLATE utf8_general_ci;
 
--- /**
---  * Create a user
---  */
---
+/**
+* Create a user
+*/
+
 CREATE USER valentine@localhost IDENTIFIED BY 'valentine';
 
 
@@ -135,21 +135,21 @@ CREATE TABLE profit(
 
     pharmacy_id   BIGINT( 20 ) NOT NULL,
 
-    profit        FLOAT NOT NULL,
+    profit        DOUBLE NOT NULL,
 
-    PH            FLOAT NOT NULL,
+    PH            DOUBLE NOT NULL,
 
-    GI            FLOAT NOT NULL,
+    GI            DOUBLE  NOT NULL,
 
-    GI_BONUS      FLOAT NOT NULL,
+    GI_BONUS      DOUBLE  NOT NULL,
 
-    GI_DEPOSIT    FLOAT NOT NULL,
+    GI_DEPOSIT    DOUBLE  NOT NULL,
 
-    GI_ANOTHER1   FLOAT NOT NULL,
+    GI_ANOTHER1   DOUBLE  NOT NULL,
 
-    GI_ANOTHER2   FLOAT NOT NULL,
+    GI_ANOTHER2   DOUBLE  NOT NULL,
 
-    GI_TOTAL      FLOAT NOT NULL,
+    GI_TOTAL      DOUBLE  NOT NULL,
 
     PRIMARY KEY( id ),
 
@@ -180,7 +180,11 @@ CREATE TABLE expense(
 
     distribution_way_id         BIGINT( 20 ) NOT NULL,
 
-    name          VARCHAR( 100 ),
+    name          VARCHAR( 100 ) NOT NULL,
+    
+    sum           DOUBLE NOT NULL,
+
+    income        BOOLEAN NOT NULL,
 
     PRIMARY KEY( id ),
     

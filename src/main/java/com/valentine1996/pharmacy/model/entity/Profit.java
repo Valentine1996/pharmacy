@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 13:08:15 :: 2014-07-08 13:30:30
+ * @date 2014-07-08 15:08:15 :: 2014-07-08 17:15:54
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
