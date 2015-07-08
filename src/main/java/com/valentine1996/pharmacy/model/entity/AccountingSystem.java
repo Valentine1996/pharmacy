@@ -70,18 +70,18 @@ public class AccountingSystem implements Serializable{
     //- SECTION :: GET -//
 
     /**
-     * Get ID of year
+     * Get ID of accounting system
      *
-     * @return Long ID of year
+     * @return Long ID of accounting system
      */
     public Long getId() {
         return this.id;
     }
 
     /**
-     * Get name of year
+     * Get name of accounting system
      *
-     * @return Integer year
+     * @return String accounting system
      */
     public String getName() {
         return this.name;
@@ -90,7 +90,7 @@ public class AccountingSystem implements Serializable{
     //- SECTION :: SET -//
 
     /**
-     * Set ID of year
+     * Set ID of accounting system
      *
      * @param id
      */
@@ -99,7 +99,7 @@ public class AccountingSystem implements Serializable{
     }
 
     /**
-     * Set name of year
+     * Set name of accounting system
      *
      * @param name
      */
