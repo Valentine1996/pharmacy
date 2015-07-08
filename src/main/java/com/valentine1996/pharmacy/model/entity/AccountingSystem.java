@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 12:01:15 :: 2014-07-08 12:17:37
+ * @date 2014-07-08 12:22:59 :: 2014-07-08 12:17:37
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -15,28 +15,28 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.model.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import java.io.Serializable;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 
 /**
- * Class for reflect table year from persistence layout
+ * Class for reflect table accounting_system from persistence layout
  *
  * @version 1.0
  */
-
 @SuppressWarnings( "serial" )
 @Entity
 @Table(
-    name = "year",
+    name = "accounting_system",
     uniqueConstraints = @UniqueConstraint(
         columnNames = {
             "name"
         }
     )
 )
-public class Year implements Serializable {
+public class AccountingSystem implements Serializable{
 
     /// *** Properties  *** ///
     @Id
@@ -45,16 +45,17 @@ public class Year implements Serializable {
     protected Long id;
 
     @NotNull
-    @Min(2010)
-    @Column( name = "name")
-    protected Integer name;
+    @NotEmpty
+    @Length( max = 16 )
+    @Column( name = "name", length = 16 )
+    protected String name;
 
     /// *** Methods     *** ///
 
     /**
      * Default constructor
      */
-    public Year() {
+    public AccountingSystem() {
     }
 
     /**
@@ -62,12 +63,12 @@ public class Year implements Serializable {
      *
      * @param name
      */
-    public Year(Integer name) {
+    public AccountingSystem(String name) {
         this.name = name;
     }
 
     //- SECTION :: GET -//
-    
+
     /**
      * Get ID of year
      *
@@ -82,7 +83,7 @@ public class Year implements Serializable {
      *
      * @return Integer year
      */
-    public Integer getName() {
+    public String getName() {
         return this.name;
     }
 
@@ -102,7 +103,7 @@ public class Year implements Serializable {
      *
      * @param name
      */
-    public void setName( Integer name ) {
+    public void setName( String name ) {
         this.name = name;
     }
 }
