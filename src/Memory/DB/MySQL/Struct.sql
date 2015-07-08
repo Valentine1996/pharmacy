@@ -17,12 +17,13 @@ CREATE DATABASE pharmacy_finance
 --  * Create a user
 --  */
 --
--- CREATE USER pharmacy_finance@localhost IDENTIFIED BY 'pharmacy_finance';
---
--- /**
---  * Grant privileges
---  */
--- GRANT ALL ON pharmacy_finance.* TO pharmacy_finance@localhost;
+CREATE USER valentine@localhost IDENTIFIED BY 'valentine';
+
+
+/**
+* Grant privileges
+*/
+GRANT ALL ON pharmacy_finance.* TO valentine@localhost;
 
 
 /* //- SECTION :: TABLES -// */
