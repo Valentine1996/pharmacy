@@ -1,4 +1,4 @@
-/// *** *** Model :: Entity :: AccountingSystem *** *** *** *** *** *** *** ///
+/// *** *** Model :: Entity :: IncomeExpenseClause *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 12:22:59 :: 2014-07-08 12:35:37
+ * @date 2014-07-08 12:42:50 :: 2014-07-08 12:35:37
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -15,29 +15,27 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.model.entity;
 
-import org.hibernate.validator.constraints.NotEmpty;
-import javax.persistence.*;
 import java.io.Serializable;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
-
+import org.hibernate.validator.constraints.NotEmpty;
 /**
- * Class for reflect table accounting_system from persistence layout
+ * Class for reflect table income_expense_clause from persistence layout
  *
  * @version 1.0
  */
 @SuppressWarnings( "serial" )
 @Entity
 @Table(
-    name = "accounting_system",
+    name = "income_expense_clause",
     uniqueConstraints = @UniqueConstraint(
         columnNames = {
             "name"
         }
     )
 )
-public class AccountingSystem implements Serializable{
-
+public class IncomeExpenseClause implements Serializable {
     /// *** Properties  *** ///
     @Id
     @GeneratedValue
@@ -55,7 +53,7 @@ public class AccountingSystem implements Serializable{
     /**
      * Default constructor
      */
-    public AccountingSystem() {
+    public IncomeExpenseClause() {
     }
 
     /**
@@ -63,7 +61,7 @@ public class AccountingSystem implements Serializable{
      *
      * @param name
      */
-    public AccountingSystem(String name) {
+    public IncomeExpenseClause(String name) {
         this.name = name;
     }
 
@@ -106,4 +104,5 @@ public class AccountingSystem implements Serializable{
     public void setName( String name ) {
         this.name = name;
     }
+    
 }
