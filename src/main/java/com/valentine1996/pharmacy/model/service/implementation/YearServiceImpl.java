@@ -74,11 +74,7 @@ public class YearServiceImpl implements YearService{
      */
     @Override
     public Year update(Year year) {
-//        Year updatedtYear = yearRepository.findOne(year.getId());
-//
-//        updatedtYear.setName(year.getName());
-//
-//        yearRepository.save(updatedtYear);
+
         return this.yearRepository.save(year);
     }
 

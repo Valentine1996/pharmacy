@@ -43,6 +43,6 @@ public class YearController {
        // ModelAndView mav = new ModelAndView("yearList");
 //        List < Year > yearList= yearService.findAll();
 //        mav.addObject("yearList", yearList);
-        return "WEB-INF/view/yearsList.jsp";
+        return "yearsList";
     }
 }

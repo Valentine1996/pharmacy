@@ -25,6 +25,7 @@ CREATE USER valentine@localhost IDENTIFIED BY 'valentine';
 */
 GRANT ALL ON pharmacy_finance.* TO valentine@localhost;
 
+USE pharmacy_finance;
 
 /* //- SECTION :: TABLES -// */
 

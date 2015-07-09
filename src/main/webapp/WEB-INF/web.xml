@@ -13,6 +13,12 @@
         </param-value>
     </context-param>
 
+    <!-- Spring profile -->
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>development</param-value>
+    </context-param>
+    
     <!-- SECTION :: FILTER -->
     <!-- Request's encoding -->
     <filter>

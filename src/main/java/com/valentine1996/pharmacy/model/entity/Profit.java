@@ -41,13 +41,15 @@ public class Profit implements Serializable {
     protected Long id;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(
+        cascade = CascadeType.ALL
+    )
     @JoinColumn( name = "year_id" )
     protected Year year;
 
     @NotNull
     @ManyToOne
-    @JoinTable( name = "pharmacy_id" )
+    @JoinColumn( name = "pharmacy_id" )
     protected Pharmacy pharmacy;
 
     @NotNull
