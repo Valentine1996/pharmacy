@@ -25,7 +25,7 @@ public interface AcccountingSystemService {
     /**
      * Find styles for page
      *
-     * @return List < Year > List of years
+     * @return List < AccountingSystem > List of years
      */
     public List < AccountingSystem > findAll();
 
