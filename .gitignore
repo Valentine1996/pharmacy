@@ -4,3 +4,4 @@
 *.ipr
 *.iws
 *.idea
+/src/main/webapp/resourses/libs/
