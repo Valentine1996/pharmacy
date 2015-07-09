@@ -20,7 +20,7 @@
 <p>
     Welcome to "Pharmacy application".<br/>
 
-    <a href="">Create a new year</a><br/>
+    <a href="${pageContext.request.contextPath}/year/createForm">Create a new year</a><br/>
     <a href="${pageContext.request.contextPath}/year/list">View all years</a><br/>
 </p>
 </body>

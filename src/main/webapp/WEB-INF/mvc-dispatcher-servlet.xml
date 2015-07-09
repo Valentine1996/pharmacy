@@ -22,4 +22,10 @@
         <property name = "suffix" value = ".jsp" />
     </bean>
 
+    <!-- bind messages.properties -->
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource"
+          id="messageSource">
+        <property name="basename" value="messages" />
+    </bean>
+
 </beans>

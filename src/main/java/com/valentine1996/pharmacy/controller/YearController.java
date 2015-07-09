@@ -21,10 +21,12 @@ import com.valentine1996.pharmacy.model.service.YearService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -62,6 +64,10 @@ public class YearController {
         return "years";
     }
 
+    @RequestMapping(value = "/createForm")
+    public String getCreatePage(){
+        return "createYear";
+    }
     /**
      * POST
      *
@@ -72,12 +78,24 @@ public class YearController {
      */
     @POST
     @RequestMapping( value = "/")
-    public String create( @ModelAttribute Year year ){
+    public String create( @Valid 
+                          @ModelAttribute 
+                          Year year,  BindingResult result ){
+
+        if (result.hasErrors()) {
+            return "createYear";
+        }
         yearService.create(year);
         
         return REDIRECT_YEAR_LIST;
     }
 
+    /**
+     * get update form for year 
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/updateForm/{ID}")
     public String getUpdatePage( @PathVariable("ID") Long id, ModelMap model ){
         Year year = yearService.find(id);
