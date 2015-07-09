@@ -16,6 +16,7 @@
 package com.valentine1996.pharmacy.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
@@ -47,6 +48,14 @@ public class IncomeExpenseClause implements Serializable {
     @Length( max = 16 )
     @Column( name = "name", length = 16 )
     protected String name;
+
+    @OneToMany(
+        fetch = FetchType.LAZY,
+        mappedBy = "incomeExpenseClause",
+        cascade = CascadeType.ALL,
+        orphanRemoval = false
+    )
+    protected List< Expense > expenses;
 
     /// *** Methods     *** ///
 
@@ -85,6 +94,10 @@ public class IncomeExpenseClause implements Serializable {
         return this.name;
     }
 
+    public List < Expense > getExpenses() {
+        return expenses;
+    }
+
     //- SECTION :: SET -//
 
     /**
@@ -104,5 +117,8 @@ public class IncomeExpenseClause implements Serializable {
     public void setName( String name ) {
         this.name = name;
     }
-    
+
+    public void setExpenses( List < Expense > expenses) {
+        this.expenses = expenses;
+    }
 }

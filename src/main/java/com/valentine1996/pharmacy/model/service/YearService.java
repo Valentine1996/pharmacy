@@ -59,6 +59,14 @@ public interface YearService {
     public Year update( Year year );
 
     /**
+     * Find year by name
+     *
+     * @param name
+     * @return Year Found
+     */
+    public Year findByName(Integer name);
+
+    /**
      * Delete
      *
      * @param id Identificator of year

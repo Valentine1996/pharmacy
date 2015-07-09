@@ -18,6 +18,7 @@ package com.valentine1996.pharmacy.model.entity;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
@@ -50,6 +51,13 @@ public class AccountingSystem implements Serializable{
     @Column( name = "name", length = 16 )
     protected String name;
 
+    @OneToMany(
+        fetch = FetchType.LAZY,
+        mappedBy = "accountingSystem",
+        cascade = CascadeType.ALL,
+        orphanRemoval = false
+    )
+    List < Expense > expenses;
     /// *** Methods     *** ///
 
     /**
@@ -87,6 +95,15 @@ public class AccountingSystem implements Serializable{
         return this.name;
     }
 
+    /**
+     * Get list of expenses of accounting system
+     *
+     * @return List < Expense > expenses
+     */
+    public List < Expense > getExpenses() {
+        return expenses;
+    }
+
     //- SECTION :: SET -//
 
     /**
@@ -105,5 +122,14 @@ public class AccountingSystem implements Serializable{
      */
     public void setName( String name ) {
         this.name = name;
+    }
+
+    /**
+     * Set list of expenses of accounting system
+     *
+     * @param expenses
+     */
+    public void setExpenses( List < Expense > expenses) {
+        this.expenses = expenses;
     }
 }

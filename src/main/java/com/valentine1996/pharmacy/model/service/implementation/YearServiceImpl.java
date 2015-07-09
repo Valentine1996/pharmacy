@@ -32,7 +32,7 @@ public class YearServiceImpl implements YearService{
     protected YearRepository yearRepository;
     
     /**
-     * Find styles for page
+     * Find year for page
      *
      * @return List < Year > List of years
      */
@@ -73,6 +73,17 @@ public class YearServiceImpl implements YearService{
     public Year update(Year year) {
 
         return this.yearRepository.save(year);
+    }
+
+    /**
+     * Find year by name
+     *
+     * @param name
+     * @return Year Found
+     */
+    @Override
+    public Year findByName(Integer name) {
+        return this.yearRepository.findByName(name);
     }
 
     /**

@@ -181,6 +181,8 @@ CREATE TABLE expense(
 
     distribution_way_id         BIGINT( 20 ) NOT NULL,
 
+    income_expense_clause_id    BIGINT( 20 ) NOT NULL,
+
     name          VARCHAR( 100 ) NOT NULL,
     
     sum           DOUBLE NOT NULL,
@@ -194,6 +196,10 @@ CREATE TABLE expense(
         ON DELETE RESTRICT,
         
     FOREIGN KEY( accounting_system_id ) REFERENCES accounting_system( id )
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    FOREIGN KEY( income_expense_clause_id ) REFERENCES income_expense_clause( id )
         ON UPDATE CASCADE
         ON DELETE RESTRICT,
         

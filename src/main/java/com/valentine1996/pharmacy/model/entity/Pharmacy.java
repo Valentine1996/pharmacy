@@ -16,6 +16,7 @@
 package com.valentine1996.pharmacy.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
@@ -74,6 +75,13 @@ public class Pharmacy implements Serializable {
     @Column( name = "calculation_consider")
     protected Boolean calculationConsider;
 
+    @OneToMany(
+        fetch = FetchType.LAZY,
+        mappedBy = "pharmacy",
+        cascade = CascadeType.ALL,
+        orphanRemoval = false
+    )
+    protected List< Profit> profits;
     /// *** Methods     *** ///
 
     /**
@@ -155,6 +163,15 @@ public class Pharmacy implements Serializable {
         return calculationConsider;
     }
 
+    /**
+     * Get list of profits of pharmacy
+     *
+     * @return Long id
+     */
+    public List < Profit > getProfits() {
+        return profits;
+    }
+
     //- SECTION :: SET -//
 
     /**
@@ -209,5 +226,14 @@ public class Pharmacy implements Serializable {
      */
     public void setCalculationConsider(Boolean calculationConsider) {
         this.calculationConsider = calculationConsider;
+    }
+
+    /**
+     * Set list of profits of pharmacy
+     *
+     * @param profits
+     */
+    public void setProfits( List < Profit > profits) {
+        this.profits = profits;
     }
 }

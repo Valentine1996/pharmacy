@@ -16,6 +16,9 @@
 
 package com.valentine1996.pharmacy.controller;
 
+import com.valentine1996.pharmacy.model.entity.Expense;
+import com.valentine1996.pharmacy.model.entity.Pharmacy;
+import com.valentine1996.pharmacy.model.entity.Profit;
 import com.valentine1996.pharmacy.model.entity.Year;
 import com.valentine1996.pharmacy.model.service.YearService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,11 +121,10 @@ public class YearController {
     public String update(@PathVariable("ID") Long id, @ModelAttribute Year year){
 
         Year updatedYear = yearService.find(id);
-        
+
         updatedYear.setName(year.getName());
-        
+
         yearService.update(updatedYear);
-        
         return REDIRECT_YEAR_LIST;
     }
 

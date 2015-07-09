@@ -1,4 +1,4 @@
-/// *** *** Model :: Entity :: Expense *** *** *** *** *** *** *///
+/// *** *** Model :: Form :: ExpenseForm *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,77 +6,37 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 17:16:31 :: 2014-07-09 20:26:54
+ * @date 2014-07-09 20:27:45 :: 2014-07-09 20:26:54
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
  *///*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
 
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
-package com.valentine1996.pharmacy.model.entity;
+package com.valentine1996.pharmacy.view.form;
 
-import java.io.Serializable;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import com.valentine1996.pharmacy.validation.constraint.CheckYear;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 /**
- * Class for reflect table expense from persistence layout
- *
- * @version 1.0
+ * Created by valentyn on 7/9/15.
  */
-@SuppressWarnings( "serial" )
-@Entity
-@Table(
-    name = "expense"
-)
-public class Expense implements Serializable {
+public class ExpenseForm {
 
     /// *** Properties  *** ///
-    @Id
-    @GeneratedValue
-    @Column( name = "id" )
-    protected Long id;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn( name = "year_id" )
-    protected Year year;
+    @CheckYear
+    protected Integer year;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn( name = "accounting_system_id" )
-    protected AccountingSystem accountingSystem;
+    protected String accountingSystem;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn( name = "distribution_way_id" )
-    protected DistributionWay distributionWay;
+    protected String distributionWay;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn( name = "income_expense_clause_id" )
-    protected IncomeExpenseClause incomeExpenseClause;
-
-    @NotNull
-    @NotEmpty
-    @Length( max = 16 )
-    @Column( name = "month", length = 16 )
     protected String month;
 
-    @NotNull
-    @NotEmpty
-    @Length( max = 100 )
-    @Column( name = "name", length = 100 )
     protected String name;
-    
-    @NotNull 
-    @Column( name = "income")
+
     protected Boolean income;
-    
-    @NotNull
-    @Column( name = "sum")
+
     protected Double sum;
 
     /// *** Methods     *** ///
@@ -84,7 +44,7 @@ public class Expense implements Serializable {
     /**
      * Default constructor
      */
-    public Expense() {
+    public ExpenseForm() {
     }
 
     /**
@@ -98,11 +58,11 @@ public class Expense implements Serializable {
      * @param income
      * @param sum
      */
-    public Expense(Year year, 
-                   AccountingSystem accountingSystem, 
-                   DistributionWay distributionWay, 
-                   String month, String name, 
-                   Boolean income, 
+    public ExpenseForm(Integer year,
+                   String accountingSystem,
+                   String distributionWay,
+                   String month, String name,
+                   Boolean income,
                    Double sum) {
         this.year = year;
         this.accountingSystem = accountingSystem;
@@ -116,38 +76,29 @@ public class Expense implements Serializable {
     //- SECTION :: GET -//
 
     /**
-     * Get ID of expense
-     *
-     * @return Long id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
      * Get year of expense
      *
-     * @return Year 
+     * @return Year
      */
-    public Year getYear() {
+    public Integer getYear() {
         return year;
     }
 
     /**
      * Get accounting system of expense
      *
-     * @return AccountingSystem
+     * @return String accountingSystem
      */
-    public AccountingSystem getAccountingSystem() {
+    public String getAccountingSystem() {
         return accountingSystem;
     }
 
     /**
      * Get distribution way of expense
      *
-     * @return DistributionWay
+     * @return String distributionWay
      */
-    public DistributionWay getDistributionWay() {
+    public String getDistributionWay() {
         return distributionWay;
     }
 
@@ -190,20 +141,11 @@ public class Expense implements Serializable {
     //- SECTION :: SET -//
 
     /**
-     * Set id of expense
-     *
-     * @param id
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
      * Set year of expense
      *
      * @param year
      */
-    public void setYear(Year year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -212,7 +154,7 @@ public class Expense implements Serializable {
      *
      * @param accountingSystem
      */
-    public void setAccountingSystem(AccountingSystem accountingSystem) {
+    public void setAccountingSystem(String accountingSystem) {
         this.accountingSystem = accountingSystem;
     }
 
@@ -221,7 +163,7 @@ public class Expense implements Serializable {
      *
      * @param distributionWay
      */
-    public void setDistributionWay(DistributionWay distributionWay) {
+    public void setDistributionWay(String distributionWay) {
         this.distributionWay = distributionWay;
     }
 

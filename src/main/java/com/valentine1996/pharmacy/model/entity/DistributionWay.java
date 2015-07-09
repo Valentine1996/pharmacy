@@ -16,6 +16,7 @@
 package com.valentine1996.pharmacy.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
@@ -48,6 +49,13 @@ public class DistributionWay implements Serializable{
     @Column( name = "name", length = 32 )
     protected String name;
 
+    @OneToMany(
+        fetch = FetchType.LAZY,
+        mappedBy = "distributionWay",
+        cascade = CascadeType.ALL,
+        orphanRemoval = false
+    )
+    protected List< Expense > expenses;
     /// *** Methods     *** ///
 
     /**
@@ -85,6 +93,15 @@ public class DistributionWay implements Serializable{
         return this.name;
     }
 
+    /**
+     * GET list expenses of distributionWay
+     *
+     * @return List <Expense> expenses
+     */
+    public List < Expense > getExpenses() {
+        return expenses;
+    }
+
     //- SECTION :: SET -//
 
     /**
@@ -105,4 +122,12 @@ public class DistributionWay implements Serializable{
         this.name = name;
     }
 
+    /**
+     * Set list of expenses of distribution way
+     *
+     * @param expenses
+     */
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
+    }
 }

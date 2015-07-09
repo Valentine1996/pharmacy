@@ -15,8 +15,10 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.model.entity;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -49,6 +51,21 @@ public class Year implements Serializable {
     @Column( name = "name")
     protected Integer name;
 
+    @OneToMany(
+        fetch = FetchType.LAZY,
+        mappedBy = "year",
+        cascade = CascadeType.ALL,
+        orphanRemoval = false
+    )
+    protected List < Profit > profits;
+
+    @OneToMany(
+        fetch = FetchType.LAZY,
+        mappedBy = "year",
+        cascade = CascadeType.ALL,
+        orphanRemoval = false
+    )
+    protected List < Expense > expenses;
     /// *** Methods     *** ///
 
     /**
@@ -86,6 +103,24 @@ public class Year implements Serializable {
         return this.name;
     }
 
+    /**
+     * Get list of profits of year
+     *
+     * @return List < Profit >
+     */
+    public List < Profit > getProfits() {
+        return profits;
+    }
+
+    /**
+     * Get list of expense of year
+     *
+     * @return  List < Expense >
+     */
+    public List < Expense > getExpenses() {
+        return expenses;
+    }
+
     //- SECTION :: SET -//
 
     /**
@@ -104,5 +139,23 @@ public class Year implements Serializable {
      */
     public void setName( Integer name ) {
         this.name = name;
+    }
+
+    /**
+     * Set list of profits
+     *
+     * @param profits
+     */
+    public void setProfits(List<Profit> profits) {
+        this.profits = profits;
+    }
+
+    /**
+     * Set list of expenses
+     *
+     * @param expenses
+     */
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 }
