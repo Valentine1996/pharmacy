@@ -5,7 +5,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-09 09:33:41 :: 2014-07-08 09:20:21
+ * @date 2014-07-09 09:53:41 :: 2014-07-09 09:57:21
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw */
 
@@ -76,6 +76,6 @@ public class ExpenseServiceImpl implements ExpenseService{
      */
     @Override
     public void delete(Long id) {
-
+        this.expenseRepository.delete(id);
     }
 }

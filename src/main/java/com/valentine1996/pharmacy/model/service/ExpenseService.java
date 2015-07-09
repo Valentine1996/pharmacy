@@ -51,15 +51,15 @@ public interface ExpenseService {
     /**
      * Update
      *
-     * @param expense Distribution Way for update
-     * @return DistributionWay Updated
+     * @param expense  for update
+     * @return Expense Updated
      */
     public Expense update( Expense expense);
 
     /**
      * Delete
      *
-     * @param id Identificator of Distribution Way
+     * @param id Identificator of Expense
      */
     public void delete( Long id );
 }

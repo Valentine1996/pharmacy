@@ -77,6 +77,6 @@ public class DistributionWayServiceImpl implements DistributionWayService {
      */
     @Override
     public void delete(Long id) {
-
+        this.distributionWayRepository.delete(id);
     }
 }
