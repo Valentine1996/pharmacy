@@ -18,13 +18,17 @@ package com.valentine1996.pharmacy.controller;
 
 import com.valentine1996.pharmacy.model.entity.Year;
 import com.valentine1996.pharmacy.model.service.YearService;
-import com.valentine1996.pharmacy.model.service.implementation.YearServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import java.util.List;
 
 /**
@@ -33,16 +37,88 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
-@RequestMapping( value = "year")
+@RequestMapping( value = "/year")
 public class YearController {
 
+    public static final String REDIRECT_YEAR_LIST = "redirect:/year/list";
 
+    @Autowired
+    YearService yearService;
+
+    /**
+     * GET 
+     *
+     * GET list of years
+     *
+     * @param model
+     * @return String ( years )
+     */
     @GET
-    @RequestMapping(value="/list")
-    public String shopListPage() {
-       // ModelAndView mav = new ModelAndView("yearList");
-//        List < Year > yearList= yearService.findAll();
-//        mav.addObject("yearList", yearList);
-        return "yearsList";
+    @RequestMapping( value="/list" )
+    public String shopListPage(ModelMap model) {
+        List < Year > years= yearService.findAll();
+        model.addAttribute("yearsList", years);
+
+        return "years";
+    }
+
+    /**
+     * POST
+     *
+     * Create new year
+     *
+     * @param year
+     * @return String ( years list )
+     */
+    @POST
+    @RequestMapping( value = "/")
+    public String create( @ModelAttribute Year year ){
+        yearService.create(year);
+        
+        return REDIRECT_YEAR_LIST;
+    }
+
+    @RequestMapping(value = "/updateForm/{ID}")
+    public String getUpdatePage( @PathVariable("ID") Long id, ModelMap model ){
+        Year year = yearService.find(id);
+        model.addAttribute("year", year);
+        return "updateYear";
+    }
+
+
+    /**
+     * PUT
+     *
+     * Update exist year
+     *
+     * @param year
+     * @param id
+     * @return String ( years list )
+     */
+    @PUT
+    @RequestMapping( value = "/update/{ID}")
+    public String update(@PathVariable("ID") Long id, @ModelAttribute Year year){
+
+        Year updatedYear = yearService.find(id);
+        
+        updatedYear.setName(year.getName());
+        
+        yearService.update(updatedYear);
+        
+        return REDIRECT_YEAR_LIST;
+    }
+
+    /**
+     * DELETE
+     *
+     * Delete exist year
+     *
+     * @param id
+     */
+    @DELETE
+    @RequestMapping( value = "/{ID}")
+    public String delete( @PathVariable("ID") Long id){
+        yearService.delete(id);
+        return REDIRECT_YEAR_LIST;
     }
 }
