@@ -8,22 +8,19 @@
  * @date 2014-07-08 18:03:47 :: 2014-07-08 18:15:20
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
-
+/// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***///
 package com.valentine1996.pharmacy.model.service.implementation;
 
-import org.springframework.stereotype.Service;
-
-/**
- * Implementation of year service
- *
- * @version 1.0
- */
-package com.valentine1996.pharmacy.model.service.implementation;
 import com.valentine1996.pharmacy.model.entity.Year;
 import com.valentine1996.pharmacy.model.repository.YearRepository;
 import com.valentine1996.pharmacy.model.service.YearService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+/**
+ * Implementation of year service
+ *
+ * @version 1.0
+ */
 
 import java.util.List;
 
@@ -40,14 +37,14 @@ public class YearServiceImpl implements YearService{
      * @return List < Year > List of years
      */
     @Override
-    public List<Year> findAll() {
+    public List < Year > findAll() {
         return this.yearRepository.findAll();
     }
 
     /**
      * Create
      *
-     * @param year Data for create new year
+     * @param year Data for creating new year
      * @return Created year
      */
     @Override
