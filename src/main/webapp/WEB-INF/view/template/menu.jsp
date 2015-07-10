@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
@@ -25,10 +26,15 @@
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> Довідники <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Second Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Item</a>
+                            <a href=""> Рік <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="<c:url value="/year/list"/>">Cписок</a>
+                                </li>
+                                <li>
+                                    <a href=""> Cтворити </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">Third Level <span class="fa arrow"></span></a>

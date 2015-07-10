@@ -8,15 +8,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<!DOCTYPE html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html" />
-    <link rel="stylesheet" type="text/css" href="/resourses/css/errors.css">
-    
-    <title>Create</title>
-</head>
-<body>
-<h1>Create year</h1>
+
 
 <c:url var="createUrl" value="/year/"/>
 
@@ -35,5 +27,4 @@
     </table>
 </form:form>
 <a href="${pageContext.request.contextPath}/">Home page</a>
-</body>
-</html>
+
