@@ -29,7 +29,7 @@
                             <a href=""> Рік <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="<c:url value="/year/list"/>">Cписок</a>
+                                    <a href="/year/list">Cписок</a>
                                 </li>
                                 <li>
                                     <a href=""> Cтворити </a>
