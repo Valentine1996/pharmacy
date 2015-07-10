@@ -21,10 +21,10 @@
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<c:url value="/resources/libs/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet"/>"
+    <link href="/resources/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>"
 
     <!-- MetisMenu CSS -->
-    <link href="<c:url value="/resources/libs/metisMenu/dist/metisMenu.min.css"/>" rel="stylesheet"/>
+    <link href= "/resources/libs/metisMenu/dist/metisMenu.min.css" rel="stylesheet"/>
 
     <!-- Timeline CSS -->
     <link href="/resources/assets/css/timeline.css" rel="stylesheet">
