@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,22 +21,22 @@
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/resourses/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/libs/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet"/>"
 
     <!-- MetisMenu CSS -->
-    <link href="/resourses/libs/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/libs/metisMenu/dist/metisMenu.min.css"/>" rel="stylesheet"/>
 
     <!-- Timeline CSS -->
-    <link href="/resourses/assets/css/timeline.css" rel="stylesheet">
+    <link href="/resources/assets/css/timeline.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/resourses/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/resources/assets/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="/resourses/libs/morrisjs/morris.css" rel="stylesheet">
+    <link href="/resources/libs/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/resourses/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/resources/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -929,21 +929,21 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="/resourses/libs/jquery/dist/jquery.min.js"></script>
+<script src="/resources/libs/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/resourses/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/resources/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="/resourses/libs/metisMenu/dist/metisMenu.min.js"></script>
+<script src="/resources/libs/metisMenu/dist/metisMenu.min.js"></script>
 
 <!-- Morris Charts JavaScript -->
-<script src="/resourses/libs/raphael/raphael-min.js"></script>
-<script src="/resourses/libs/morrisjs/morris.min.js"></script>
-<script src="/resourses/assets/js/morris-data.js"></script>
+<script src="/resources/libs/raphael/raphael-min.js"></script>
+<script src="/resources/libs/morrisjs/morris.min.js"></script>
+<script src="/resources/assets/js/morris-data.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/resourses/assets/js/sb-admin-2.js"></script>
+<script src="/resources/assets/js/sb-admin-2.js"></script>
 
 </body>
 

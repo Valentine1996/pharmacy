@@ -32,6 +32,11 @@
     <!-- Configures the @Controller programming model -->
     <mvc:annotation-driven />
 
+    <!-- Handles HTTP GET requests for /resources/** by efficiently serving up
+	    static resources in the ${webappRoot}/resources/ directory
+    -->
+    <mvc:resources mapping = "/resources/**" location = "/resources/" />
+    
     <!-- SECTION :: PERSISTANCE(Hibernate) -->
     <jpa:repositories base-package = "com.valentine1996.pharmacy" />
 
