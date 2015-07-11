@@ -73,6 +73,7 @@
         <!-- Tests -->
         <httpcore.version>4.3.2</httpcore.version>
         <httpclient.version>4.3.3</httpclient.version>
+        <dbcp.version>2.1</dbcp.version>
     </properties>
 
     <dependencies>
@@ -296,23 +297,29 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Test -->
         <!-- jUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.11</version>
             <scope>test</scope>
             <type>jar</type>
         </dependency>
 
-        <!-- Database -->
+
+        <!-- Data base -->
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>2.3.2</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${dbcp.version}</version>
+        </dependency>
         <!-- Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
@@ -335,26 +342,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-core</artifactId>
-            <version>1.1.5</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- for json support -->
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-json</artifactId>
-            <version>1.1.5</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- for testing -->
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-test-framework</artifactId>
-            <version>1.1.5.1</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.glassfish</groupId>
@@ -362,7 +349,17 @@
             <version>3.0</version>
             <scope>provided</scope>
         </dependency>
-
+        <!-- For testing!!! -->
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>2.2.4</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -15,24 +15,21 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.validation.constraint;
 
-import com.valentine1996.pharmacy.validation.validator.CheckYearValidator;
+import com.valentine1996.pharmacy.validation.constraint.Impl.CheckYearValidator;
 
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.*;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
 
-@Target( { FIELD, ANNOTATION_TYPE })
-@Retention( RUNTIME )
-@Constraint(validatedBy = CheckYearValidator.class)
 @Documented
+@Target( ElementType.FIELD )
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = CheckYearValidator.class)
+@ReportAsSingleViolation
 public @interface CheckYear {
-    String message() default "{This year isn't in database}";
+    String message() default "This year isn't in database";
 
     Class<?>[] groups() default {};
 

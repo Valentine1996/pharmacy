@@ -1,6 +1,5 @@
-package com.valentine1996.pharmacy.validation.validator;
+package com.valentine1996.pharmacy.validation.constraint.Impl;
 
-import com.valentine1996.pharmacy.model.entity.Year;
 import com.valentine1996.pharmacy.model.service.YearService;
 import com.valentine1996.pharmacy.validation.constraint.CheckYear;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +14,17 @@ public class CheckYearValidator implements ConstraintValidator<CheckYear, Intege
     YearService yearService;
 
     @Override
-    public void initialize(CheckYear year) {
-        
+    public void initialize(CheckYear checkYear) {
+    int x =5;
     }
 
     @Override
     public boolean isValid(Integer object, ConstraintValidatorContext constraintContext) {
 
         if(yearService.findByName(object)== null){
-            return false;
+            return true;
 
         }
-        return true;
+        return false;
     }
 }

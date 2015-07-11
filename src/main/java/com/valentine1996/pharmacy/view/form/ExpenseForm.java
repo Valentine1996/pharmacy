@@ -17,6 +17,10 @@ package com.valentine1996.pharmacy.view.form;
 
 import com.valentine1996.pharmacy.validation.constraint.CheckYear;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
 /**
  * Created by valentyn on 7/9/15.
  */

@@ -16,7 +16,6 @@
           (null, 2014),
           (null, 2015),
           (null, 2016);
- 
 
  /**
  * Insert data into table accounting_system

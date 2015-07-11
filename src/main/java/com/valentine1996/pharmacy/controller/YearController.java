@@ -16,24 +16,19 @@
 
 package com.valentine1996.pharmacy.controller;
 
-import com.valentine1996.pharmacy.model.entity.Expense;
-import com.valentine1996.pharmacy.model.entity.Pharmacy;
-import com.valentine1996.pharmacy.model.entity.Profit;
+
 import com.valentine1996.pharmacy.model.entity.Year;
 import com.valentine1996.pharmacy.model.service.YearService;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
+
 import java.util.List;
 
 /**
@@ -58,7 +53,6 @@ public class YearController {
      * @param model
      * @return String ( years )
      */
-    @GET
     @RequestMapping( value="/list" )
     public String shopListPage(ModelMap model) {
         List < Year > years= yearService.findAll();
@@ -79,8 +73,7 @@ public class YearController {
      * @param year
      * @return String ( years list )
      */
-    @POST
-    @RequestMapping( value = "/")
+    @RequestMapping( value = "/", method = RequestMethod.POST)
     public String create( @Valid 
                           @ModelAttribute 
                           Year year,  BindingResult result ){
@@ -88,8 +81,15 @@ public class YearController {
         if (result.hasErrors()) {
             return "createYear";
         }
-        yearService.create(year);
-        
+        try {
+            Year newYear = new Year();
+            newYear.setName(year.getName());
+            yearService.create(newYear);
+        }
+        catch( Exception e){
+            Error error;
+            
+        }
         return REDIRECT_YEAR_LIST;
     }
 
@@ -100,7 +100,9 @@ public class YearController {
      * @return
      */
     @RequestMapping(value = "/updateForm/{ID}")
-    public String getUpdatePage( @PathVariable("ID") Long id, ModelMap model ){
+    public String getUpdatePage(
+                                 @PathVariable("ID") Long id,
+                                 ModelMap model){
         Year year = yearService.find(id);
         model.addAttribute("year", year);
         return "updateYear";
@@ -116,12 +118,18 @@ public class YearController {
      * @param id
      * @return String ( years list )
      */
-    @PUT
-    @RequestMapping( value = "/update/{ID}")
-    public String update(@PathVariable("ID") Long id, @ModelAttribute Year year){
-
+    @RequestMapping( value = "/update/{ID}", method = RequestMethod.POST)
+    public String update(@PathVariable("ID") Long id, 
+                         @Valid
+                         @ModelAttribute Year year,
+                         BindingResult result,
+                         ModelMap model){
         Year updatedYear = yearService.find(id);
 
+        if (result.hasErrors()) {
+            model.addAttribute("year", year);
+            return "updateYear";
+        }
         updatedYear.setName(year.getName());
 
         yearService.update(updatedYear);
@@ -135,10 +143,20 @@ public class YearController {
      *
      * @param id
      */
-    @DELETE
     @RequestMapping( value = "/{ID}")
     public String delete( @PathVariable("ID") Long id){
-        yearService.delete(id);
+        try {
+            yearService.delete(id);
+        } 
+        catch( ConstraintViolationException e){
+            Error error;
+        }
         return REDIRECT_YEAR_LIST;
     }
+    
+//    @ExceptionHandler(Exception.class)
+//    public void handleException(Exception e){
+//        int x = 1;
+//
+//    }
 }

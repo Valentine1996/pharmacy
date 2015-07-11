@@ -31,12 +31,7 @@ import javax.validation.constraints.NotNull;
 @SuppressWarnings( "serial" )
 @Entity
 @Table(
-    name = "year",
-    uniqueConstraints = @UniqueConstraint(
-        columnNames = {
-            "name"
-        }
-    )
+    name = "year"
 )
 public class Year implements Serializable {
 
@@ -54,7 +49,6 @@ public class Year implements Serializable {
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "year",
-        cascade = CascadeType.ALL,
         orphanRemoval = false
     )
     protected List < Profit > profits;
@@ -62,7 +56,6 @@ public class Year implements Serializable {
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "year",
-        cascade = CascadeType.ALL,
         orphanRemoval = false
     )
     protected List < Expense > expenses;

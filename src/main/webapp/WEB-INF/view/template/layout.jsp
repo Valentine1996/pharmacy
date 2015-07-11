@@ -18,10 +18,16 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/resources/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>"
+    <link href="/resources/assets/css/cascade-menu.css" rel="stylesheet"/>"
 
     <!-- MetisMenu CSS -->
     <link href= "/resources/libs/metisMenu/dist/metisMenu.min.css" rel="stylesheet"/>
 
+    <!-- DataTables CSS -->
+    <link href="/resources/libs/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="/resources/libs/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
     <!-- Timeline CSS -->
     <link href="/resources/assets/css/timeline.css" rel="stylesheet">
 
@@ -46,7 +52,9 @@
         <!-- NAVIGATION -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <tiles:insertAttribute name="header"/>
+            <div>
             <tiles:insertAttribute name="menu"/>
+            </div>  
         </nav>
         <div id="page-wrapper">
             <tiles:insertAttribute name="body"/>

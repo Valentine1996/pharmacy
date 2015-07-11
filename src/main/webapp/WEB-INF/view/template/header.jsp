@@ -9,40 +9,33 @@
 <!-- Navigation -->
 
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="">Pharmacy v1.0</a>
     </div>
     <!-- /.navbar-header -->
 
-    <ul class="nav navbar-top-links navbar-right">
+    <ul class="nav navbar-top-links navbar-left">
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <a id="dLabel"  data-toggle="dropdown" href="#">
                 <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
             </a>
-            <ul class="dropdown-menu dropdown-messages">
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                <li><a href="#">Some action</a></li>
+                <li><a href="#">Some other action</a></li>
                 <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                        </div>
-                        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a class="text-center" href="#">
-                        <strong>Read All Messages</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Hover me for more options</a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="#">Second level</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#">Even More..</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">3rd level</a></li>
+                                <li><a href="#">3rd level</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Second level</a></li>
+                        <li><a href="#">Second level</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- /.dropdown-messages -->
