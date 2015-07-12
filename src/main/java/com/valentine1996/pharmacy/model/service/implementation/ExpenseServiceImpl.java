@@ -15,6 +15,7 @@ import com.valentine1996.pharmacy.model.entity.Expense;
 import com.valentine1996.pharmacy.model.repository.ExpenseRepository;
 import com.valentine1996.pharmacy.model.service.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
  *
  * @version 1.0
  */
+@Service
 public class ExpenseServiceImpl implements ExpenseService{
     @Autowired
     ExpenseRepository expenseRepository;

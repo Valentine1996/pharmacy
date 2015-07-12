@@ -15,6 +15,7 @@ import com.valentine1996.pharmacy.model.entity.Pharmacy;
 import com.valentine1996.pharmacy.model.repository.PharmacyRepository;
 import com.valentine1996.pharmacy.model.service.PharmacyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
  *
  * @version 1.0
  */
+@Service
 public class PharmacyServiceImpl implements PharmacyService {
 
     @Autowired

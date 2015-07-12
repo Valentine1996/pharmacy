@@ -15,6 +15,7 @@ import com.valentine1996.pharmacy.model.entity.DistributionWay;
 import com.valentine1996.pharmacy.model.repository.DistributionWayRepository;
 import com.valentine1996.pharmacy.model.service.DistributionWayService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
  *
  * @version 1.0
  */
+@Service
 public class DistributionWayServiceImpl implements DistributionWayService {
 
     @Autowired

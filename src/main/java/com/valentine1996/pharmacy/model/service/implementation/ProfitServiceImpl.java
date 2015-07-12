@@ -14,6 +14,7 @@ import com.valentine1996.pharmacy.model.entity.Profit;
 import com.valentine1996.pharmacy.model.repository.ProfitRepository;
 import com.valentine1996.pharmacy.model.service.ProfitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ import java.util.List;
  *
  * @version 1.0
  */
+@Service
 public class ProfitServiceImpl implements ProfitService {
 
     @Autowired

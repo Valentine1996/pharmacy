@@ -14,6 +14,7 @@ import com.valentine1996.pharmacy.model.entity.IncomeExpenseClause;
 import com.valentine1996.pharmacy.model.repository.IncomeExpenseClauseRepository;
 import com.valentine1996.pharmacy.model.service.IncomeExpenseClauseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ import java.util.List;
  *
  * @version 1.0
  */
+@Service
 public class IncomeExpenseClauseServiceImpl implements IncomeExpenseClauseService {
 
     @Autowired
