@@ -30,7 +30,7 @@
                     <div class="panel-body">
                         <form:form  class ="form-horizontal"  method="POST" modelAttribute="year" action="${createUrl}" >
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">Введіть ім'я</label>
+                                <label class="control-label col-sm-2" for="name">Введіть назву</label>
                                 <div class="col-sm-5 ">
                                     <input class="form-control" id="name" name="name" value="${year.name}">
                                     <p class="help-block"><form:errors path="name" /></p>

@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: valentyn
   Date: 7/12/15
-  Time: 5:09 PM
+  Time: 5:49 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Список способів розподілу по об'єктах</h1>
+                <h1 class="page-header">Список статтів доходів/витрат</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -25,7 +25,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Способи розподілу по об'єктах
+                         Статті доходів/витрат
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -39,14 +39,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="disway" items="${diswayList}">
+                                <c:forEach var="clause" items="${clauseList}">
                                     <tr>
-                                        <td>${disway.name}</td>
+                                        <td>${clause.name}</td>
                                         <td>
-                                            <a href="<c:url value="/disway/updateForm/${disway.id}"/>">Редагувати</a><br/>
+                                            <a href="<c:url value="/clause/updateForm/${clause.id}"/>">Редагувати</a><br/>
                                         </td>
                                         <td>
-                                            <a href="<c:url value="/disway/${disway.id}"/>">Видалити</a><br/>
+                                            <a href="<c:url value="/clause/${clause.id}"/>">Видалити</a><br/>
                                         </td>
                                     </tr>
                                 </c:forEach>

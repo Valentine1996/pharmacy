@@ -1,4 +1,4 @@
-/// *** *** Controller :: DistributionWayController  *** *** *** *** *** *** *///
+/// *** *** Controller :: IncomeExpenseClauseControllerController  *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-12 16:50:10 :: 2014-07-12 17 : 43 :50
+ * @date 2014-07-12 17:45:45 :: 2014-07-12 17 : 43 :50
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -17,9 +17,10 @@
 package com.valentine1996.pharmacy.controller;
 
 
-import com.valentine1996.pharmacy.model.entity.AccountingSystem;
 import com.valentine1996.pharmacy.model.entity.DistributionWay;
-import com.valentine1996.pharmacy.model.service.DistributionWayService;
+import com.valentine1996.pharmacy.model.entity.IncomeExpenseClause;
+import com.valentine1996.pharmacy.model.service.IncomeExpenseClauseService;
+import com.valentine1996.pharmacy.model.service.IncomeExpenseClauseService;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,129 +33,129 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * Controller for distribution way
+ * Controller for income/expense clause
  *
  * @version 1.0
  */
 @Controller
-@RequestMapping( value = "/disway")
-public class DistributionWayController {
+@RequestMapping( value = "/clause")
+public class IncomeExpenseClauseController {
 
-    public static final String REDIRECT_DISWAY_LIST = "redirect:/disway/list";
+    public static final String REDIRECT_CLAUSE_LIST = "redirect:/clause/list";
 
     @Autowired
-    DistributionWayService distributionWayService;
+    IncomeExpenseClauseService incomeExpenseClauseService;
 
     /**
      * GET 
      *
-     * GET list of distribution ways
+     * GET list of income Expense Clause
      *
      * @param model
-     * @return String ( distributionWays )
+     * @return String ( clauses )
      */
     @RequestMapping( value="/list" )
     public String shopListPage(ModelMap model) {
-        List < DistributionWay > distributionWays = distributionWayService.findAll();
-        model.addAttribute("diswayList", distributionWays);
+        List <IncomeExpenseClause> clauses = incomeExpenseClauseService.findAll();
+        model.addAttribute("clauseList", clauses);
 
-        return "distributionWays";
+        return "clauses";
     }
 
     @RequestMapping(value = "/createForm")
     public String getCreatePage(){
-        return "createDistributionWay";
+        return "createClause";
     }
 
     /**
      * POST
      *
-     * Create distributionWay
+     * Create income/expense clause
      *
-     * @param distributionWay
-     * @return String ( distributionWay list )
+     * @param incomeExpenseClause
+     * @return String
      */
     @RequestMapping( value = "/", method = RequestMethod.POST)
     public String create( @Valid
                           @ModelAttribute
-                          DistributionWay distributionWay,
+                          IncomeExpenseClause incomeExpenseClause,
                           BindingResult result ){
 
         if (result.hasErrors()) {
-            return "createDistributionWay";
+            return "createClause";
         }
         try {
-            DistributionWay newDistributionWay = new DistributionWay();
-            newDistributionWay.setName(distributionWay.getName());
-            distributionWayService.create( newDistributionWay );
+            IncomeExpenseClause newIncomeExpenseClause= new IncomeExpenseClause();
+            newIncomeExpenseClause.setName(incomeExpenseClause.getName());
+            incomeExpenseClauseService.create( newIncomeExpenseClause );
         }
         catch( Exception e){
             Error error;
 
         }
-        return REDIRECT_DISWAY_LIST;
+        return REDIRECT_CLAUSE_LIST;
     }
 
     /**
-     * Get update form for distribution Way
+     * Get update form for income/expense clause
      * @param id
      * @param model
-     * @return String ( updateDistributionWay )
+     * @return String ( updateClause )
      */
     @RequestMapping(value = "/updateForm/{ID}")
     public String getUpdatePage(
         @PathVariable("ID") Long id,
         ModelMap model){
-        DistributionWay distributionWay = distributionWayService.find(id);
-        model.addAttribute("distributionWay", distributionWay);
-        return "updateDistributionWay";
+        IncomeExpenseClause incomeExpenseClause = incomeExpenseClauseService.find(id);
+        model.addAttribute("incomeExpenseClause", incomeExpenseClause);
+        return "updateClause";
     }
 
 
     /**
      * POST
      *
-     * Update exist distributionWay
+     * Update exist income/expense clause
      *
-     * @param distributionWay
+     * @param incomeExpenseClause
      * @param id
-     * @return String ( years list )
+     * @return String ( clause list )
      */
     @RequestMapping( value = "/update/{ID}", method = RequestMethod.POST)
     public String update(@PathVariable("ID")
                          Long id,
                          @Valid
                          @ModelAttribute
-                         DistributionWay distributionWay,
+                         IncomeExpenseClause incomeExpenseClause,
                          BindingResult result,
                          ModelMap model){
-        DistributionWay updateDistributionWay= distributionWayService.find(id);
+        IncomeExpenseClause updateClause= incomeExpenseClauseService.find(id);
 
         if (result.hasErrors()) {
-            model.addAttribute("distributionWay", distributionWay);
-            return "updateDistributionWay";
+            model.addAttribute("incomeExpenseClause", incomeExpenseClause);
+            return "updateClause";
         }
-        updateDistributionWay.setName(distributionWay.getName());
+        updateClause.setName( updateClause.getName() );
 
-        distributionWayService.update(updateDistributionWay);
-        return REDIRECT_DISWAY_LIST;
+        incomeExpenseClauseService.update( updateClause );
+        return REDIRECT_CLAUSE_LIST;
     }
 
     /**
      * DELETE
      *
-     * Delete exist distribution way
+     * Delete exist income/expense clause
      *
      * @param id
      */
     @RequestMapping( value = "/{ID}")
     public String delete( @PathVariable("ID") Long id){
         try {
-            distributionWayService.delete(id);
+            incomeExpenseClauseService.delete(id);
         }
         catch( ConstraintViolationException e){
             Error error;
         }
-        return REDIRECT_DISWAY_LIST;
+        return REDIRECT_CLAUSE_LIST;
     }
 }

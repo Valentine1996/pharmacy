@@ -33,14 +33,19 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>Ім'я</th>
+                                    <th>Назва</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
+                                <tbody>
                                 <c:forEach var="acs" items="${acsList}">
                                     <tr>
                                         <td>${acs.name}</td>
                                         <td>
                                             <a href="<c:url value="/acs/updateForm/${acs.id}"/>">Редагувати</a><br/>
+                                        </td>
+                                        <td>
                                             <a href="<c:url value="/acs/${acs.id}"/>">Видалити</a><br/>
                                         </td>
                                     </tr>

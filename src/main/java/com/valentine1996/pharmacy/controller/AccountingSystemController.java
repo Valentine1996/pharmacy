@@ -31,7 +31,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * Controller for year
+ * Controller for accounting system
  *
  * @version 1.0
  */
