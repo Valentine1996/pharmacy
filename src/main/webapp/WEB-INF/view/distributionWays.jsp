@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: valentyn
   Date: 7/12/15
-  Time: 3:39 PM
+  Time: 5:09 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Список облікових систем</h1>
+                <h1 class="page-header">Список способів розподілу по об'єктах</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -25,7 +25,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Облікові системи
+                        Способи розподілу по об'єктах
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -36,12 +36,12 @@
                                     <th>Ім'я</th>
                                 </tr>
                                 </thead>
-                                <c:forEach var="acs" items="${acsList}">
+                                <c:forEach var="disway" items="${diswayList}">
                                     <tr>
-                                        <td>${acs.name}</td>
+                                        <td>${disway.name}</td>
                                         <td>
-                                            <a href="<c:url value="/acs/updateForm/${acs.id}"/>">Редагувати</a><br/>
-                                            <a href="<c:url value="/acs/${acs.id}"/>">Видалити</a><br/>
+                                            <a href="<c:url value="/disway/updateForm/${disway.id}"/>">Редагувати</a><br/>
+                                            <a href="<c:url value="/disway/${disway.id}"/>">Видалити</a><br/>
                                         </td>
                                     </tr>
                                 </c:forEach>

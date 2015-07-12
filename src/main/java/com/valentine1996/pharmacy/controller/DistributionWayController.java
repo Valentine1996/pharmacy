@@ -56,7 +56,7 @@ public class DistributionWayController {
     @RequestMapping( value="/list" )
     public String shopListPage(ModelMap model) {
         List < DistributionWay > distributionWays = distributionWayService.findAll();
-        model.addAttribute("disWayList", distributionWays);
+        model.addAttribute("diswayList", distributionWays);
 
         return "distributionWays";
     }
