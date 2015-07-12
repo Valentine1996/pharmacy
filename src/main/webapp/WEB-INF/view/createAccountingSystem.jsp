@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: valentyn
-  Date: 7/9/15
-  Time: 4:34 PM
+  Date: 7/12/15
+  Time: 3:38 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,10 +12,11 @@
 
 <tiles:insertDefinition name="basetemplate">
     <tiles:putAttribute name="body">
-        <c:url var="createUrl" value="/year/"/>
+        <c:url var="createUrl" value="/acs/"/>
+
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Створення року</h1>
+                <h1 class="page-header">Створення облікової системи</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
@@ -28,11 +29,11 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="year" action="${createUrl}" >
+                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="accountingSystem" action="${createUrl}" >
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть ім'я</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="name" name="name" value="${year.name}">
+                                    <input class="form-control" id="name" name="name" value="${accountingSystem.name}">
                                     <p class="help-block"><form:errors path="name" /></p>
                                 </div>
                             </div>

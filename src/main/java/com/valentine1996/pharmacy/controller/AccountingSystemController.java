@@ -1,4 +1,4 @@
-/// *** *** Controller :: YearController  *** *** *** *** *** *** *///
+/// *** *** Controller :: AccountingSystemController  *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 19:15:10 :: 2014-07-08
+ * @date 2014-07-12 15:21:45 :: 2014-07-12 16:45:55
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -17,15 +17,14 @@
 package com.valentine1996.pharmacy.controller;
 
 
-import com.valentine1996.pharmacy.model.entity.Year;
-import com.valentine1996.pharmacy.model.service.YearService;
+import com.valentine1996.pharmacy.model.entity.AccountingSystem;
+import com.valentine1996.pharmacy.model.service.implementation.AccountingSystemServiceImpl;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -37,101 +36,106 @@ import java.util.List;
  * @version 1.0
  */
 @Controller
-@RequestMapping( value = "/year")
-public class YearController {
+@RequestMapping( value = "/acs")
+public class AccountingSystemController {
 
-    public static final String REDIRECT_YEAR_LIST = "redirect:/year/list";
+    public static final String REDIRECT_ACS_LIST = "redirect:/acs/list";
 
     @Autowired
-    YearService yearService;
+    AccountingSystemServiceImpl accountingSystemService;
 
     /**
-     * GET list of years
+     * GET 
+     *
+     * GET list of accounting systems
      *
      * @param model
      * @return String ( years )
      */
     @RequestMapping( value="/list" )
     public String shopListPage(ModelMap model) {
-        List < Year > years= yearService.findAll();
-        model.addAttribute("yearsList", years);
+        List < AccountingSystem > accountingSystems = accountingSystemService.findAll();
+        model.addAttribute("acsList", accountingSystems);
 
-        return "years";
+        return "accountingSystems";
     }
 
     @RequestMapping(value = "/createForm")
     public String getCreatePage(){
-        return "createYear";
+        return "createAccountingSystem";
     }
     /**
      * POST
      *
-     * Create new year
+     * Create accounting system
      *
-     * @param year
+     * @param accountingSystem
      * @return String ( years list )
      */
     @RequestMapping( value = "/", method = RequestMethod.POST)
-    public String create( @Valid 
-                          @ModelAttribute 
-                          Year year,  BindingResult result ){
+    public String create( @Valid
+                          @ModelAttribute
+                          AccountingSystem accountingSystem,  
+                          BindingResult result ){
 
         if (result.hasErrors()) {
-            return "createYear";
+            return "createAccountingSystem";
         }
         try {
-            Year newYear = new Year();
-            newYear.setName(year.getName());
-            yearService.create(newYear);
+            AccountingSystem newAccountingSystem1= new AccountingSystem();
+            newAccountingSystem1.setName(accountingSystem.getName());
+            accountingSystemService.create( newAccountingSystem1 );
         }
         catch( Exception e){
             Error error;
-            
+
         }
-        return REDIRECT_YEAR_LIST;
+        return REDIRECT_ACS_LIST;
     }
 
     /**
-     * Get update form for year
+     * Get update form for accounting system
      * @param id
      * @param model
      * @return
      */
     @RequestMapping(value = "/updateForm/{ID}")
     public String getUpdatePage(
-                                 @PathVariable("ID") Long id,
-                                 ModelMap model){
-        Year year = yearService.find(id);
-        model.addAttribute("year", year);
-        return "updateYear";
+        @PathVariable("ID") Long id,
+        ModelMap model){
+        AccountingSystem accountingSystem = accountingSystemService.find(id);
+        model.addAttribute("accountingSystem", accountingSystem);
+        return "updateAccountingSystem";
     }
 
 
     /**
      * POST
      *
-     * Update exist year
+     * Update exist accountingSystem
      *
-     * @param year
+     * @param accountingSystem
      * @param id
      * @return String ( years list )
      */
     @RequestMapping( value = "/update/{ID}", method = RequestMethod.POST)
-    public String update(@PathVariable("ID") Long id, 
+    public String update(@PathVariable("ID") 
+                         Long id,
                          @Valid
-                         @ModelAttribute Year year,
+                         @ModelAttribute 
+                         AccountingSystem accountingSystem,
                          BindingResult result,
                          ModelMap model){
-        Year updatedYear = yearService.find(id);
+        AccountingSystem updatedAccountingSystem = accountingSystemService.find(id);
 
         if (result.hasErrors()) {
-            model.addAttribute("year", year);
-            return "updateYear";
+            model.addAttribute("accountingSystem", accountingSystem);
+            return "updateAccountingSystem";
         }
-        updatedYear.setName(year.getName());
+        updatedAccountingSystem.setName(accountingSystem.getName());
 
-        yearService.update(updatedYear);
-        return REDIRECT_YEAR_LIST;
+        accountingSystemService.update(updatedAccountingSystem);
+        return REDIRECT_ACS_LIST;
     }
 
     /**
@@ -144,11 +148,11 @@ public class YearController {
     @RequestMapping( value = "/{ID}")
     public String delete( @PathVariable("ID") Long id){
         try {
-            yearService.delete(id);
-        } 
+            accountingSystemService.delete(id);
+        }
         catch( ConstraintViolationException e){
             Error error;
         }
-        return REDIRECT_YEAR_LIST;
+        return REDIRECT_ACS_LIST;
     }
 }

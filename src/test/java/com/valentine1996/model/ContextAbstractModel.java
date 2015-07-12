@@ -1,6 +1,8 @@
 package com.valentine1996.model;
 
 import org.junit.BeforeClass;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.validation.Path;
 import javax.validation.Validation;
@@ -13,13 +15,16 @@ import javax.validation.Validator;
  */
 
 public class ContextAbstractModel extends BaseModel{
-    protected static Validator validator;
+
+    @Autowired
+    public static Validator validator;
 
 
     @BeforeClass
     public static void setUp() {
         // Set validator
-        validator = Validation.buildDefaultValidatorFactory().getValidator();
+//        LocalValidatorFactoryBean factoryBean;
+//        validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 
     //- SECTION :: HELPERS -//

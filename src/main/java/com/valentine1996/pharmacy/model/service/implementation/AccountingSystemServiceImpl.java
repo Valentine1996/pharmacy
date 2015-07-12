@@ -13,7 +13,7 @@ package com.valentine1996.pharmacy.model.service.implementation;
 
 import com.valentine1996.pharmacy.model.entity.AccountingSystem;
 import com.valentine1996.pharmacy.model.repository.AccountingSystemRepository;
-import com.valentine1996.pharmacy.model.service.AcccountingSystemService;
+import com.valentine1996.pharmacy.model.service.AccountingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,7 @@ import java.util.List;
  * @version 1.0
  */
 @Service
-public class AccountingSystemServiceImpl implements AcccountingSystemService {
+public class AccountingSystemServiceImpl implements AccountingSystemService {
 
     @Autowired
     AccountingSystemRepository accountingSystemRepository;

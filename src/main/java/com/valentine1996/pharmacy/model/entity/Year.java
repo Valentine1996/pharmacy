@@ -43,7 +43,7 @@ public class Year implements Serializable {
 
     @NotNull
     @Min(2010)
-    @Column( name = "name")
+    @Column( name = "name", unique = true)
     protected Integer name;
 
     @OneToMany(

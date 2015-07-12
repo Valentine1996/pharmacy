@@ -349,7 +349,7 @@
             <version>3.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- For testing!!! -->
+        <!-- For testing with hibernate validator!!! -->
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>javax.el-api</artifactId>

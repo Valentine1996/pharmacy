@@ -19,7 +19,7 @@ import com.valentine1996.pharmacy.model.entity.AccountingSystem;
 
 import java.util.List;
 
-public interface AcccountingSystemService {
+public interface AccountingSystemService {
     
     //- SECTION :: MAIN -//
     /**

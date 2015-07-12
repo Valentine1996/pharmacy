@@ -70,19 +70,15 @@ public class Profit implements Serializable {
     @Column( name = "GI")
     protected Double GI;
 
-    @NotNull
     @Column( name = "GI_bonus")
     protected Double GIBonus;
 
-    @NotNull
     @Column( name = "GI_deposit")
     protected Double GIDeposit;
 
-    @NotNull
     @Column( name = "GI_another1")
     protected Double GIAnother1;
 
-    @NotNull
     @Column( name = "GI_another2")
     protected Double GIAnother2;
 
