@@ -15,6 +15,8 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.view.form;
 
+import com.valentine1996.pharmacy.validation.constraint.CheckAcs;
+import com.valentine1996.pharmacy.validation.constraint.CheckDisway;
 import com.valentine1996.pharmacy.validation.constraint.CheckYear;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -40,10 +42,12 @@ public class ExpenseForm {
 
     @NotEmpty
     @Length( max = 16 )
+    @CheckAcs
     protected String accountingSystem;
 
     @NotEmpty
     @Length( max = 32 )
+    @CheckDisway
     protected String distributionWay;
 
     @NotEmpty

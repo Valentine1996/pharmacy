@@ -32,28 +32,28 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="shortName">Введіть коротку назву</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="shortName" name="shortName">
+                                    <input class="form-control" id="shortName" name="shortName" value="${pharmacy.shortName}">
                                     <p class="help-block"><form:errors path="shortName" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="name" name="name">
+                                    <input class="form-control" id="name" name="name" value="${pharmacy.name}">
                                     <p class="help-block"><form:errors path="name" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="legalForm">Введіть oрг.-пр.форму</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="legalForm" name="legalForm">
+                                    <input class="form-control" id="legalForm" name="legalForm" value="${pharmacy.legalForm}">
                                     <p class="help-block"><form:errors path="legalForm" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="region">Введіть область</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="region" name="region">
+                                    <input class="form-control" id="region" name="region" value="${pharmacy.region}">
                                     <p class="help-block"><form:errors path="region" /></p>
                                 </div>
                             </div>

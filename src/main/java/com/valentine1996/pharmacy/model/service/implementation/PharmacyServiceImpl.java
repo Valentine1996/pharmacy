@@ -63,6 +63,16 @@ public class PharmacyServiceImpl implements PharmacyService {
     }
 
     /**
+     * Find Pharmacy by short name
+     *
+     * @param name Unique identificator
+     * @return Pharmacy Found
+     */
+    @Override
+    public Pharmacy findByShortName(String name){
+        return this.pharmacyRepository.findByShortName(name);
+    }
+    /**
      * Update
      *
      * @param pharmacy for update

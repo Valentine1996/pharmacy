@@ -32,21 +32,21 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="month">Введіть місяць</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="month" name="month">
+                                    <input class="form-control" id="month" name="month" value="${expenseForm.month}">
                                     <p class="help-block"><form:errors path="month" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="year">Введіть рік</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" type="number" id="year" name="year">
+                                    <input class="form-control" type="number" id="year" name="year" value="${expenseForm.year}">
                                     <p class="help-block"><form:errors path="year" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="accountingSystem">Введіть облікову систему</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="accountingSystem" name="accountingSystem">
+                                    <input class="form-control" id="accountingSystem" name="accountingSystem" value="${expenseForm.accountingSystem}">
                                     <p class="help-block"><form:errors path="accountingSystem" /></p>
                                 </div>
                             </div>
@@ -61,28 +61,28 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="clause">Введіть cтаттю д/в</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="clause" name="clause">
+                                    <input class="form-control" id="clause" name="clause" value="${expenseForm.clause}">
                                     <p class="help-block"><form:errors path="clause" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="distributionWay">Введіть спосіб розподілу</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="distributionWay" name="distributionWay">
+                                    <input class="form-control" id="distributionWay" name="distributionWay" value="${expenseForm.distributionWay}">
                                     <p class="help-block"><form:errors path="distributionWay" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" id="name" name="name">
+                                    <input class="form-control" id="name" name="name" value="${expenseForm.name}">
                                     <p class="help-block"><form:errors path="name" /></p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="sum">Введіть суму</label>
                                 <div class="col-sm-5 ">
-                                    <input class="form-control" type="number" id="sum" name="sum">
+                                    <input class="form-control" type="number" id="sum" name="sum" value="${expenseForm.sum}">
                                     <p class="help-block"><form:errors path="sum" /></p>
                                 </div>
                             </div>

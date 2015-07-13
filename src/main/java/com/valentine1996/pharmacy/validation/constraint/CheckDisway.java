@@ -1,4 +1,4 @@
-/// *** *** Validation :: Constraint :: Year  *** *** *** *** *** *** *///
+/// *** *** Validation :: Constraint :: CheckDisway  *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 19:15:10 :: 2014-07-08
+ * @date 2014-07-13 16:13:30 :: 2014-07-13 16:13:50
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -15,6 +15,7 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.validation.constraint;
 
+import com.valentine1996.pharmacy.validation.constraint.Impl.CheckDiswayValidator;
 import com.valentine1996.pharmacy.validation.constraint.Impl.CheckYearValidator;
 
 import java.lang.annotation.*;
@@ -24,15 +25,15 @@ import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
 
 /**
- * Constraint for checking year in database
+ * Constraint for checking distribution way in database
  */
 @Documented
 @Target( ElementType.FIELD )
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = CheckYearValidator.class)
+@Constraint(validatedBy = CheckDiswayValidator.class)
 @ReportAsSingleViolation
-public @interface CheckYear {
-    String message() default "This year isn't in database";
+public @interface CheckDisway {
+    String message() default "This distribution way isn't in database";
 
     Class<?>[] groups() default {};
 

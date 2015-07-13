@@ -50,6 +50,7 @@ public interface PharmacyService {
      */
     public Pharmacy find( Long id );
 
+    public Pharmacy findByShortName( String name);
     /**
      * Update
      *

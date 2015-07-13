@@ -1,4 +1,4 @@
-/// *** *** Validation :: Constraint :: Year  *** *** *** *** *** *** *///
+/// *** *** Validation :: Constraint :: CheckPharmacy *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 19:15:10 :: 2014-07-08
+ * @date 2014-07-12 16:34:16 :: 2014-07-12 16:38:20
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *
@@ -15,24 +15,25 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.validation.constraint;
 
-import com.valentine1996.pharmacy.validation.constraint.Impl.CheckYearValidator;
 
-import java.lang.annotation.*;
+import com.valentine1996.pharmacy.validation.constraint.Impl.CheckAcsValidator;
+import com.valentine1996.pharmacy.validation.constraint.Impl.CheckPharmacyValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
+import java.lang.annotation.*;
 
 /**
- * Constraint for checking year in database
+ * Constraint for checking pharmacy in database
  */
 @Documented
 @Target( ElementType.FIELD )
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = CheckYearValidator.class)
+@Constraint(validatedBy = CheckPharmacyValidator.class)
 @ReportAsSingleViolation
-public @interface CheckYear {
-    String message() default "This year isn't in database";
+public @interface CheckPharmacy {
+    String message() default "This pharmacy isn't in database";
 
     Class<?>[] groups() default {};
 

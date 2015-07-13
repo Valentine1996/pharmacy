@@ -23,4 +23,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @version 1.0
  */
 public interface PharmacyRepository extends JpaRepository < Pharmacy, Long> {
+    public Pharmacy findByShortName(String name);
 }
