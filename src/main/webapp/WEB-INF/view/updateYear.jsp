@@ -28,7 +28,7 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <c:url var="updateUrl" value="/year/update"/>
-                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="year" action="${updateUrl}/${year.id}" >
+                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="year" action="/year/${year.id}" >
                             <input type="hidden" name="id" value="${year.id}"/>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>

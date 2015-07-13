@@ -71,7 +71,6 @@ public class Pharmacy implements Serializable {
     protected String region;
 
     @NotNull
-    @NotEmpty
     @Column( name = "calculation_consider")
     protected Boolean calculationConsider;
 

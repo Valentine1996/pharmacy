@@ -23,8 +23,7 @@ public class ContextAbstractModel extends BaseModel{
     @BeforeClass
     public static void setUp() {
         // Set validator
-//        LocalValidatorFactoryBean factoryBean;
-//        validator = Validation.buildDefaultValidatorFactory().getValidator();
+        validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 
     //- SECTION :: HELPERS -//

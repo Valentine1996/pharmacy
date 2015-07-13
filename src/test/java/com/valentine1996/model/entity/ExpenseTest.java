@@ -16,17 +16,11 @@ import static org.junit.Assert.assertEquals;
 
 public class ExpenseTest extends ContextAbstractModel{
 
-
-    @BeforeClass
-    public static void setUp() {
-        
-    }
     @Ignore
     @Test
     public void testExpenseFormFieldsSuccess(){
-//        Set <ConstraintViolation <ExpenseForm> > constraintViolationSet;
-//        LocalValidatorFactoryBean factory=new LocalValidatorFactoryBean();
-//        Validator validator = factory.getValidator();
+        Set <ConstraintViolation <ExpenseForm> > constraintViolationSet;
+
         ExpenseForm expenseFormSuccess = new ExpenseForm(
             2013,
             "Д+ФОП",
@@ -37,12 +31,12 @@ public class ExpenseTest extends ContextAbstractModel{
             2010.0
         );
 
-        BindingResult errors = new BeanPropertyBindingResult(expenseFormSuccess, "expenseForm");
+//        BindingResult errors = new BeanPropertyBindingResult(expenseFormSuccess, "expenseForm");
         Year year = new Year();
 
-        validator.validate(expenseFormSuccess);
+        constraintViolationSet = validator.validate(expenseFormSuccess);
 
-        assertEquals(0, errors.getErrorCount());
+        assertEquals(0, constraintViolationSet.size() );
     }
     @Ignore
     @Test
