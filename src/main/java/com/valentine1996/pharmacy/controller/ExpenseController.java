@@ -146,6 +146,7 @@ public class ExpenseController {
         expenseForm.setMonth(expense.getMonth());
         expenseForm.setName(expense.getName());
         expenseForm.setIncome(expense.getIncome());
+        expenseForm.setSum(expense.getSum());
 
         model.addAttribute("expenseForm", expenseForm);
         return "updateExpense";

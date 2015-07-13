@@ -25,7 +25,6 @@ public class CheckClauseValidator implements ConstraintValidator<CheckClause, St
 
         if(clauseService.findByName(object)== null){
             return false;
-
         }
         return true;
     }

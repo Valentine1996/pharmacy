@@ -43,10 +43,10 @@
                                     <tr>
                                         <td>${disway.name}</td>
                                         <td>
-                                            <a href="<c:url value="/disway/updateForm/${disway.id}"/>">Редагувати</a><br/>
+                                            <a href="/disway/updateForm/${disway.id}"/>Редагувати</a><br/>
                                         </td>
                                         <td>
-                                            <a href="<c:url value="/disway/${disway.id}"/>">Видалити</a><br/>
+                                            <a href="/disway/${disway.id}"/>>Видалити</a><br/>
                                         </td>
                                     </tr>
                                 </c:forEach>

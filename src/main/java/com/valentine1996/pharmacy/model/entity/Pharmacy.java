@@ -77,8 +77,7 @@ public class Pharmacy implements Serializable {
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "pharmacy",
-        cascade = CascadeType.ALL,
-        orphanRemoval = false
+        cascade = CascadeType.PERSIST
     )
     protected List< Profit> profits;
     /// *** Methods     *** ///

@@ -28,7 +28,7 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <c:url var="updateUrl" value="/acs/update"/>
-                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="accountingSystem" action="${updateUrl}/${accountingSystem.id}" >
+                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="accountingSystem" action="/acs/update/${accountingSystem.id}" >
                             <input type="hidden" name="id" value="${accountingSystem.id}"/>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>

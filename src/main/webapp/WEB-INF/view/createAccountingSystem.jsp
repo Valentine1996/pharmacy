@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="accountingSystem" action="${createUrl}" >
+                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="accountingSystem" action="/acs/" >
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>
                                 <div class="col-sm-5 ">

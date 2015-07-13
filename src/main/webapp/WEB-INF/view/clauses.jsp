@@ -43,10 +43,10 @@
                                     <tr>
                                         <td>${clause.name}</td>
                                         <td>
-                                            <a href="<c:url value="/clause/updateForm/${clause.id}"/>">Редагувати</a><br/>
+                                            <a href="/clause/updateForm/${clause.id}"/>Редагувати</a><br/>
                                         </td>
                                         <td>
-                                            <a href="<c:url value="/clause/${clause.id}"/>">Видалити</a><br/>
+                                            <a href="/clause/${clause.id}">Видалити</a><br/>
                                         </td>
                                     </tr>
                                 </c:forEach>

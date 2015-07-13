@@ -52,8 +52,7 @@ public class IncomeExpenseClause implements Serializable {
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "incomeExpenseClause",
-        cascade = CascadeType.ALL,
-        orphanRemoval = false
+        cascade = CascadeType.PERSIST
     )
     protected List< Expense > expenses;
 

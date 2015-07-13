@@ -49,14 +49,14 @@ public class Year implements Serializable {
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "year",
-        orphanRemoval = false
+        cascade = CascadeType.PERSIST
     )
     protected List < Profit > profits;
 
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "year",
-        orphanRemoval = false
+        cascade=CascadeType.PERSIST
     )
     protected List < Expense > expenses;
     /// *** Methods     *** ///

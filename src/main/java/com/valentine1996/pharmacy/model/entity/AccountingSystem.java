@@ -30,12 +30,7 @@ import org.hibernate.validator.constraints.Length;
 @SuppressWarnings( "serial" )
 @Entity
 @Table(
-    name = "accounting_system",
-    uniqueConstraints = @UniqueConstraint(
-        columnNames = {
-            "name"
-        }
-    )
+    name = "accounting_system"
 )
 public class AccountingSystem implements Serializable{
 
@@ -48,14 +43,13 @@ public class AccountingSystem implements Serializable{
     @NotNull
     @NotEmpty
     @Length( max = 16 )
-    @Column( name = "name", length = 16 )
+    @Column( name = "name", length = 16 , unique = true)
     protected String name;
 
     @OneToMany(
         fetch = FetchType.LAZY,
         mappedBy = "accountingSystem",
-        cascade = CascadeType.ALL,
-        orphanRemoval = false
+        cascade = CascadeType.PERSIST
     )
     List < Expense > expenses;
     /// *** Methods     *** ///

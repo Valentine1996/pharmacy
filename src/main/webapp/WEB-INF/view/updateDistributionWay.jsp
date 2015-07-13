@@ -28,7 +28,7 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <c:url var="updateUrl" value="/disway/update"/>
-                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="distributionWay" action="${updateUrl}/${distributionWay.id}" >
+                        <form:form  class ="form-horizontal"  method="POST" modelAttribute="distributionWay" action="/disway/update/${distributionWay.id}" >
                             <input type="hidden" name="id" value="${distributionWay.id}"/>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>

@@ -58,7 +58,7 @@
                                             </span>
                                         </td>
                                         <td >${expense.incomeExpenseClause.name}</td>
-                                        <td >${expense.distributionWay.id}</td>
+                                        <td >${expense.distributionWay.name}</td>
                                         <td >${expense.name}</td>
                                         <td >${expense.sum}</td>
                                         <td>
