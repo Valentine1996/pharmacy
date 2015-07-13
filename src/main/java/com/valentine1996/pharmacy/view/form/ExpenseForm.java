@@ -16,6 +16,9 @@
 package com.valentine1996.pharmacy.view.form;
 
 import com.valentine1996.pharmacy.validation.constraint.CheckYear;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -28,19 +31,38 @@ public class ExpenseForm {
 
     /// *** Properties  *** ///
 
+    protected Long id;
+
+    @NotNull
+    @Min(2010)
     @CheckYear
     protected Integer year;
 
+    @NotEmpty
+    @Length( max = 16 )
     protected String accountingSystem;
 
+    @NotEmpty
+    @Length( max = 32 )
     protected String distributionWay;
 
+    @NotEmpty
+    @Length( max = 16 )
+    protected String clause;
+
+    @NotEmpty
+    @Length( max = 16 )
     protected String month;
 
+    @NotEmpty
+    @Length( max = 100 )
     protected String name;
 
+    @NotNull
     protected Boolean income;
 
+    @NotNull
+    @Range
     protected Double sum;
 
     /// *** Methods     *** ///
@@ -57,6 +79,7 @@ public class ExpenseForm {
      * @param year
      * @param accountingSystem
      * @param distributionWay
+     * @param clause
      * @param month
      * @param name
      * @param income
@@ -65,6 +88,7 @@ public class ExpenseForm {
     public ExpenseForm(Integer year,
                    String accountingSystem,
                    String distributionWay,
+                   String clause,
                    String month, String name,
                    Boolean income,
                    Double sum) {
@@ -78,6 +102,11 @@ public class ExpenseForm {
     }
 
     //- SECTION :: GET -//
+
+
+    public Long getId() {
+        return id;
+    }
 
     /**
      * Get year of expense
@@ -106,11 +135,16 @@ public class ExpenseForm {
         return distributionWay;
     }
 
+    public String getClause() {
+        return clause;
+    }
+
     /**
      * Get month of expense
      *
      * @return String month
      */
+    
     public String getMonth() {
         return month;
     }
@@ -144,11 +178,16 @@ public class ExpenseForm {
 
     //- SECTION :: SET -//
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     /**
      * Set year of expense
      *
      * @param year
      */
+    
     public void setYear(Integer year) {
         this.year = year;
     }
@@ -169,6 +208,10 @@ public class ExpenseForm {
      */
     public void setDistributionWay(String distributionWay) {
         this.distributionWay = distributionWay;
+    }
+
+    public void setClause(String clause) {
+        this.clause = clause;
     }
 
     /**

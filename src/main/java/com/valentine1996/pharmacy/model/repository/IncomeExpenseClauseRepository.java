@@ -24,4 +24,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface IncomeExpenseClauseRepository extends JpaRepository  < IncomeExpenseClause,
                                                                        Long > {
+    public IncomeExpenseClause findByName(String name);
 }

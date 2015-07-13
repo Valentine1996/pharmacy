@@ -62,6 +62,17 @@ public class AccountingSystemServiceImpl implements AccountingSystemService {
     }
 
     /**
+     * Find accounting system by name
+     *
+     * @param name
+     * @return Accounting System Found
+     */
+    @Override
+    public AccountingSystem findByName(String name) {
+        return this.accountingSystemRepository.findByName(name);
+    }
+
+    /**
      * Update
      *
      * @param accountingSystem Accounting System for update

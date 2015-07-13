@@ -62,6 +62,17 @@ public class DistributionWayServiceImpl implements DistributionWayService {
     }
 
     /**
+     * Find Distribution Way by name
+     *
+     * @param name Unique identificator
+     * @return Distribution Way Found
+     */
+    @Override
+    public DistributionWay findByName(String name) {
+        return this.distributionWayRepository.findByName(name);
+    }
+
+    /**
      * Update
      *
      * @param distributionWay Distribution Way for update

@@ -61,6 +61,17 @@ public class IncomeExpenseClauseServiceImpl implements IncomeExpenseClauseServic
     }
 
     /**
+     * Find IncomeExpenseClause  by name
+     *
+     * @param name Unique identificator
+     * @return IncomeExpenseClause  Found
+     */
+    @Override
+    public IncomeExpenseClause findByName(String name) {
+        return this.incomeExpenseClauseRepository.findByName(name);
+    }
+
+    /**
      * Update
      *
      * @param incomeExpenseClause for update

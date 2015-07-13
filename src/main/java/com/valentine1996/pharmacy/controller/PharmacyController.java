@@ -1,4 +1,4 @@
-/// *** *** Controller :: YearController  *** *** *** *** *** *** *///
+/// *** *** Controller :: PharmacyController  *** *** *** *** *** *** *///
 
 /** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *
  *                                                                  *
@@ -6,7 +6,7 @@
  *
  * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
  *
- * @date 2014-07-08 19:15:10 :: 2014-07-08
+ * @date 2014-07-12 19:15:10 :: 2014-07-13 12:42:45
  *
  * @address /Ukraine/Ivano-Frankivsk/Rozhniw
  *                                                                  *

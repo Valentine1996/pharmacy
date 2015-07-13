@@ -45,6 +45,15 @@ public interface AccountingSystemService {
      */
     public AccountingSystem find( Long id );
 
+
+    /**
+     * Find accounting system by name
+     *
+     * @param name
+     * @return Accounting System Found
+     */
+    public AccountingSystem findByName(String name);
+
     /**
      * Update
      *

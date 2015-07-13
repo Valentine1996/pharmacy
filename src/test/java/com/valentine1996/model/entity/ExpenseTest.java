@@ -27,6 +27,7 @@ public class ExpenseTest extends ContextAbstractModel{
             "%Ввсі",
             "січень",
             "sdsfhsdkjf",
+            "dsfsdf",
             true,
             2010.0
         );

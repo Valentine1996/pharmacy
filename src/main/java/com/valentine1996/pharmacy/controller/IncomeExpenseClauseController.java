@@ -135,7 +135,7 @@ public class IncomeExpenseClauseController {
             model.addAttribute("incomeExpenseClause", incomeExpenseClause);
             return "updateClause";
         }
-        updateClause.setName( updateClause.getName() );
+        updateClause.setName( incomeExpenseClause.getName() );
 
         incomeExpenseClauseService.update( updateClause );
         return REDIRECT_CLAUSE_LIST;

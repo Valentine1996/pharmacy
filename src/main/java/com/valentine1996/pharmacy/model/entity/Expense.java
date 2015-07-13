@@ -101,12 +101,14 @@ public class Expense implements Serializable {
     public Expense(Year year, 
                    AccountingSystem accountingSystem, 
                    DistributionWay distributionWay, 
+                   IncomeExpenseClause incomeExpenseClause,
                    String month, String name, 
                    Boolean income, 
                    Double sum) {
         this.year = year;
         this.accountingSystem = accountingSystem;
         this.distributionWay = distributionWay;
+        this.incomeExpenseClause = incomeExpenseClause;
         this.month = month;
         this.name = name;
         this.income = income;
@@ -149,6 +151,10 @@ public class Expense implements Serializable {
      */
     public DistributionWay getDistributionWay() {
         return distributionWay;
+    }
+
+    public IncomeExpenseClause getIncomeExpenseClause() {
+        return incomeExpenseClause;
     }
 
     /**
@@ -223,6 +229,10 @@ public class Expense implements Serializable {
      */
     public void setDistributionWay(DistributionWay distributionWay) {
         this.distributionWay = distributionWay;
+    }
+
+    public void setIncomeExpenseClause(IncomeExpenseClause incomeExpenseClause) {
+        this.incomeExpenseClause = incomeExpenseClause;
     }
 
     /**

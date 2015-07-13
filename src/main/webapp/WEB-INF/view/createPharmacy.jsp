@@ -60,8 +60,8 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="calculationConsider"> Враховувати в разрах пит.ваг. </label>
                                 <div class="col-sm-5 checkbox">
-                                    <input type="hidden" name="calculationConsider" value="0" />
                                     <input type="checkbox" class="form-control" id="calculationConsider" name="calculationConsider" value="1" checked>
+                                    <input type="hidden" name="calculationConsider" value="0" />
                                     <p class="help-block"><form:errors path="calculationConsider" /></p>
                                 </div>
                             </div>

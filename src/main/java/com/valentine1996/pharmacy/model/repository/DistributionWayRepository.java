@@ -23,4 +23,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface DistributionWayRepository extends JpaRepository < DistributionWay, 
                                                                    Long > {
+    public DistributionWay findByName(String name);
 }

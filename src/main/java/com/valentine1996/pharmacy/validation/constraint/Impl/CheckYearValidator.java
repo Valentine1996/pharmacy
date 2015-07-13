@@ -16,16 +16,15 @@ public class CheckYearValidator implements ConstraintValidator<CheckYear, Intege
 
     @Override
     public void initialize(CheckYear checkYear) {
-    int x = 5;
     }
 
     @Override
     public boolean isValid(Integer object, ConstraintValidatorContext constraintContext) {
 
         if(yearService.findByName(object)== null){
-            return true;
+            return false;
 
         }
-        return false;
+        return true;
     }
 }

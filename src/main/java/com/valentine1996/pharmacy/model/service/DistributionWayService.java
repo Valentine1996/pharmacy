@@ -45,6 +45,13 @@ public interface DistributionWayService {
     public DistributionWay find( Long id );
 
     /**
+     * Find Distribution Way by name
+     *
+     * @param name Unique identificator
+     * @return Distribution Way Found
+     */
+    public DistributionWay findByName( String name);
+    /**
      * Update
      *
      * @param distributionWay Distribution Way for update

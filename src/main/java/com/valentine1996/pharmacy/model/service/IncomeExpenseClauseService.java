@@ -51,6 +51,13 @@ public interface IncomeExpenseClauseService {
     public IncomeExpenseClause  find( Long id );
 
     /**
+     * Find IncomeExpenseClause  by name
+     *
+     * @param name Unique identificator
+     * @return IncomeExpenseClause  Found
+     */
+    public IncomeExpenseClause  findByName( String name );
+    /**
      * Update
      *
      * @param incomeExpenseClause  for update
