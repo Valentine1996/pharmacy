@@ -48,7 +48,7 @@ USE pharmacy_finance;
 CREATE TABLE year(
     id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-    name        INT( 4 ) NOT NULL,
+    name        INT( 4 ) NOT NULL UNIQUE,
 
     PRIMARY KEY( id )
 )
@@ -64,7 +64,7 @@ ENGINE = InnoDB CHARACTER SET = utf8;
 CREATE TABLE accounting_system(
     id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-    name        VARCHAR( 16 ) NOT NULL,
+    name        VARCHAR( 16 ) NOT NULL UNIQUE,
 
     PRIMARY KEY( id )
 )
@@ -79,7 +79,7 @@ ENGINE = InnoDB CHARACTER SET = utf8;
 CREATE TABLE income_expense_clause(
     id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-    name        VARCHAR( 16 ) NOT NULL,
+    name        VARCHAR( 16 ) NOT NULL UNIQUE,
 
     PRIMARY KEY( id )
 )
@@ -94,7 +94,7 @@ ENGINE = InnoDB CHARACTER SET = utf8;
 CREATE TABLE distribution_way(
     id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-    name        VARCHAR( 32 ) NOT NULL,
+    name        VARCHAR( 32 ) NOT NULL UNIQUE,
 
     PRIMARY KEY( id )
 )
@@ -109,9 +109,9 @@ ENGINE = InnoDB CHARACTER SET = utf8;
 CREATE TABLE pharmacy(
     id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-    shortname   VARCHAR( 32 ) NOT NULL,
+    shortname   VARCHAR( 32 ) NOT NULL UNIQUE,
 
-    name        VARCHAR( 32 ) NOT NULL,
+    name        VARCHAR( 32 ) NOT NULL UNIQUE,
 
     legal_form  VARCHAR( 8 ) NOT NULL,
 
