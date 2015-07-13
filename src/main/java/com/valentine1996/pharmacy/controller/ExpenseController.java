@@ -136,7 +136,18 @@ public class ExpenseController {
         @PathVariable("ID") Long id,
         ModelMap model){
         Expense expense = expenseService.find(id);
-        model.addAttribute("expense", expense);
+        //-Create data for form in update jsp (expenseForm) -//
+        ExpenseForm expenseForm = new ExpenseForm();
+        expenseForm.setId(expense.getId());
+        expenseForm.setAccountingSystem(expense.getAccountingSystem().getName());
+        expenseForm.setYear(expense.getYear().getName());
+        expenseForm.setDistributionWay(expense.getDistributionWay().getName());
+        expenseForm.setClause(expense.getIncomeExpenseClause().getName());
+        expenseForm.setMonth(expense.getMonth());
+        expenseForm.setName(expense.getName());
+        expenseForm.setIncome(expense.getIncome());
+
+        model.addAttribute("expenseForm", expenseForm);
         return "updateExpense";
     }
 
@@ -161,7 +172,7 @@ public class ExpenseController {
 
         if (result.hasErrors()) {
             model.addAttribute("expenseForm", expenseForm);
-            return "updatePharmacy";
+            return "updateExpense";
         }
         //- Find expense year and add to expense-//
         Year year = yearService.findByName(expenseForm.getYear());
