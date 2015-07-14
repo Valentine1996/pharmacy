@@ -21,6 +21,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 /**
  * Class for reflect table profit from persistence layout
@@ -59,30 +60,38 @@ public class Profit implements Serializable {
     protected String month;
 
     @NotNull
+    @Range
     @Column( name = "profit")
     protected Double profit;
 
     @NotNull
+    @Range
     @Column( name = "PH")
     protected Double PH;
 
     @NotNull
+    @Range
     @Column( name = "GI")
     protected Double GI;
 
+    @Range
     @Column( name = "GI_bonus")
     protected Double GIBonus;
 
+    @Range
     @Column( name = "GI_deposit")
     protected Double GIDeposit;
 
+    @Range
     @Column( name = "GI_another1")
     protected Double GIAnother1;
 
+    @Range
     @Column( name = "GI_another2")
     protected Double GIAnother2;
 
     @NotNull
+    @Range
     @Column( name = "GI_total")
     protected Double GITotal;
 
@@ -151,7 +160,7 @@ public class Profit implements Serializable {
      *
      * @return Year year
      */
-    public Year getYearId() {
+    public Year getYear() {
         return year;
     }
 
@@ -160,7 +169,7 @@ public class Profit implements Serializable {
      *
      * @return Pharmacy pharmacy
      */
-    public Pharmacy getPharmacyId() {
+    public Pharmacy getPharmacy() {
         return pharmacy;
     }
 

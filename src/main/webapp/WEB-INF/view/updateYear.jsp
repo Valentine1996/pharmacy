@@ -33,7 +33,7 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="name">Введіть назву</label>
                                 <div class="col-sm-5 ">
-                                <input class="form-control" id="name" name="name" value="${year.name}">
+                                <input class="form-control" id="name" type = "number" name="name" value="${year.name}">
                                 <p class="help-block"><form:errors path="name" /></p>
                                 </div>
                             </div>
