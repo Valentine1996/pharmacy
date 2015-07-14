@@ -42,9 +42,7 @@ public class Profit implements Serializable {
     protected Long id;
 
     @NotNull
-    @ManyToOne(
-        cascade = CascadeType.ALL
-    )
+    @ManyToOne
     @JoinColumn( name = "year_id" )
     protected Year year;
 
@@ -76,19 +74,19 @@ public class Profit implements Serializable {
 
     @Range
     @Column( name = "GI_bonus")
-    protected Double GIBonus;
+    protected double GIBonus;
 
     @Range
     @Column( name = "GI_deposit")
-    protected Double GIDeposit;
+    protected double GIDeposit;
 
     @Range
     @Column( name = "GI_another1")
-    protected Double GIAnother1;
+    protected double GIAnother1;
 
     @Range
     @Column( name = "GI_another2")
-    protected Double GIAnother2;
+    protected double GIAnother2;
 
     @NotNull
     @Range
@@ -214,7 +212,7 @@ public class Profit implements Serializable {
      *
      * @return Double GI + bonus 
      */
-    public Double getGIBonus() {
+    public double getGIBonus() {
         return GIBonus;
     }
 
@@ -223,7 +221,7 @@ public class Profit implements Serializable {
      *
      * @return Double GI + deposit
      */
-    public Double getGIDeposit() {
+    public double getGIDeposit() {
         return GIDeposit;
     }
 
@@ -232,7 +230,7 @@ public class Profit implements Serializable {
      *
      * @return Double GI + another1
      */
-    public Double getGIAnother1() {
+    public double getGIAnother1() {
         return GIAnother1;
     }
 
@@ -241,7 +239,7 @@ public class Profit implements Serializable {
      *
      * @return Double GI + another2
      */
-    public Double getGIAnother2() {
+    public double getGIAnother2() {
         return GIAnother2;
     }
 
@@ -324,7 +322,7 @@ public class Profit implements Serializable {
      *
      * @param GIBonus
      */
-    public void setGIBonus(Double GIBonus) {
+    public void setGIBonus(double GIBonus) {
         this.GIBonus = GIBonus;
     }
 
@@ -333,7 +331,7 @@ public class Profit implements Serializable {
      *
      * @param GIDeposit
      */
-    public void setGIDeposit(Double GIDeposit) {
+    public void setGIDeposit(double GIDeposit) {
         this.GIDeposit = GIDeposit;
     }
 
@@ -342,7 +340,7 @@ public class Profit implements Serializable {
      *
      * @param GIAnother1
      */
-    public void setGIAnother1(Double GIAnother1) {
+    public void setGIAnother1(double GIAnother1) {
         this.GIAnother1 = GIAnother1;
     }
 
@@ -351,7 +349,7 @@ public class Profit implements Serializable {
      *
      * @param GIAnother2
      */
-    public void setGIAnother2(Double GIAnother2) {
+    public void setGIAnother2(double GIAnother2) {
         this.GIAnother2 = GIAnother2;
     }
 

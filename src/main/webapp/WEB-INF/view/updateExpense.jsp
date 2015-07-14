@@ -29,6 +29,7 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <form:form  class ="form-horizontal"  method="POST" modelAttribute="expenseForm" action="/expense/update/${expenseForm.id}" >
+                            <input type="hidden" name="id" value="${expenseForm.id}"/>
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="month">Введіть місяць</label>
                                 <div class="col-sm-5 ">
@@ -86,7 +87,7 @@
                                     <p class="help-block"><form:errors path="sum" /></p>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-default">Створити</button>
+                            <button type="submit" class="btn btn-default">Редагувати</button>
                         </form:form>
                     </div>
                     <!-- /.panel-body -->

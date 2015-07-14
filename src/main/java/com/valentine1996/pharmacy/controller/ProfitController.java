@@ -69,7 +69,9 @@ public class ProfitController {
     }
 
     @RequestMapping(value = "/createForm")
-    public String getCreatePage(){
+    public String getCreatePage( ModelMap model ){
+        ProfitForm profitForm = new ProfitForm();
+        model.addAttribute( "profitForm", profitForm);
         return "createProfit";
     }
     /**
@@ -100,6 +102,7 @@ public class ProfitController {
             newProfit.setPharmacy(pharmacy);
             //-Set other objects-//
             newProfit.setMonth( profitForm.getMonth());
+            newProfit.setProfit( profitForm.getProfit());
             newProfit.setPH( profitForm.getPH());
             newProfit.setGI( profitForm.getGI());
             newProfit.setGIBonus( profitForm.getGIBonus());
@@ -134,7 +137,9 @@ public class ProfitController {
         profitForm.setId(profit.getId());
         profitForm.setMonth(profit.getMonth());
         profitForm.setYear(profit.getYear().getName());
-        profitForm.setPharmacy( profit.getPharmacy().getName());
+        profitForm.setPharmacy(profit.getPharmacy().getShortName());
+        profitForm.setProfit( profit.getProfit());
+        profitForm.setPH( profit.getPH());
         profitForm.setGI( profit.getGI());
         profitForm.setGIBonus( profit.getGIBonus());
         profitForm.setGIDeposit( profit.getGIDeposit());
@@ -178,6 +183,8 @@ public class ProfitController {
         //- Find profit pharmacy and add to profit -//
         Pharmacy pharmacy = pharmacyService.findByShortName(profitForm.getPharmacy());
         updatedProfit.setPharmacy(pharmacy);
+        updatedProfit.setProfit( profitForm.getProfit());
+        updatedProfit.setPH( profitForm.getPH());
         updatedProfit.setGI( profitForm.getGI());
         updatedProfit.setGIBonus( profitForm.getGIBonus());
         updatedProfit.setGIDeposit( profitForm.getGIDeposit());

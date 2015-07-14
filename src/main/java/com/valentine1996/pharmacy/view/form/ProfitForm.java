@@ -15,6 +15,7 @@
 /// *** Code    *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ///
 package com.valentine1996.pharmacy.view.form;
 
+import com.valentine1996.pharmacy.validation.constraint.CheckPharmacy;
 import com.valentine1996.pharmacy.validation.constraint.CheckYear;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -36,48 +37,40 @@ public class ProfitForm {
     @NotNull
     @NotEmpty
     @Length(max = 32)
+    @CheckPharmacy
     protected String pharmacy;
 
     @NotNull
     @NotEmpty
     @Length( max = 16 )
-    @Column( name = "month", length = 16 )
     protected String month;
 
     @NotNull
     @Range
-    @Column( name = "profit")
     protected Double profit;
 
     @NotNull
     @Range
-    @Column( name = "PH")
     protected Double PH;
 
     @NotNull
     @Range
-    @Column( name = "GI")
     protected Double GI;
 
     @Range
-    @Column( name = "GI_bonus")
-    protected Double GIBonus;
+    protected double GIBonus;
 
     @Range
-    @Column( name = "GI_deposit")
-    protected Double GIDeposit;
+    protected double GIDeposit;
 
     @Range
-    @Column( name = "GI_another1")
-    protected Double GIAnother1;
+    protected double GIAnother1;
 
     @Range
-    @Column( name = "GI_another2")
-    protected Double GIAnother2;
+    protected double GIAnother2;
 
     @Range
     @NotNull
-    @Column( name = "GI_total")
     protected Double GITotal;
     
     //-SECTION - GETTERS-//
@@ -110,19 +103,19 @@ public class ProfitForm {
         return GI;
     }
 
-    public Double getGIBonus() {
+    public double getGIBonus() {
         return GIBonus;
     }
 
-    public Double getGIDeposit() {
+    public double getGIDeposit() {
         return GIDeposit;
     }
 
-    public Double getGIAnother1() {
+    public double getGIAnother1() {
         return GIAnother1;
     }
 
-    public Double getGIAnother2() {
+    public double getGIAnother2() {
         return GIAnother2;
     }
 
@@ -161,19 +154,19 @@ public class ProfitForm {
         this.GI = GI;
     }
 
-    public void setGIBonus(Double GIBonus) {
+    public void setGIBonus(double GIBonus) {
         this.GIBonus = GIBonus;
     }
 
-    public void setGIDeposit(Double GIDeposit) {
+    public void setGIDeposit(double GIDeposit) {
         this.GIDeposit = GIDeposit;
     }
 
-    public void setGIAnother1(Double GIAnother1) {
+    public void setGIAnother1(double GIAnother1) {
         this.GIAnother1 = GIAnother1;
     }
 
-    public void setGIAnother2(Double GIAnother2) {
+    public void setGIAnother2(double GIAnother2) {
         this.GIAnother2 = GIAnother2;
     }
 
