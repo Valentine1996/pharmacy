@@ -35,6 +35,13 @@ public interface PharmacyService {
     public List < Pharmacy > findAll();
 
     /**
+     * Find pharmacy's short names for page
+     *
+     * @return List < Pharmacy > List of Pharmacies
+     */
+    public List < String > getAllShortNames();
+    
+    /**
      * Create
      *
      * @param pharmacy Data for create new Pharmacy

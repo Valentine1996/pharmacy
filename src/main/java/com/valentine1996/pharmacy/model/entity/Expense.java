@@ -76,8 +76,8 @@ public class Expense implements Serializable {
     protected Boolean income;
     
     @NotNull
-    @Column( name = "sum")
-    protected Double sum;
+    @Column( name = "suma")
+    protected double sum;
 
     /// *** Methods     *** ///
 
@@ -104,7 +104,7 @@ public class Expense implements Serializable {
                    IncomeExpenseClause incomeExpenseClause,
                    String month, String name, 
                    Boolean income, 
-                   Double sum) {
+                   double sum) {
         this.year = year;
         this.accountingSystem = accountingSystem;
         this.distributionWay = distributionWay;
@@ -189,7 +189,7 @@ public class Expense implements Serializable {
      *
      * @return Double sum
      */
-    public Double getSum() {
+    public double getSum() {
         return sum;
     }
 
@@ -267,7 +267,7 @@ public class Expense implements Serializable {
      *
      * @param sum
      */
-    public void setSum(Double sum) {
+    public void setSum(double sum) {
         this.sum = sum;
     }
 }

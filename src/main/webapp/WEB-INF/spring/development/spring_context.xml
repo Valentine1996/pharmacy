@@ -38,7 +38,7 @@
     <mvc:resources mapping = "/resources/**" location = "/resources/" />
     
     <!-- SECTION :: PERSISTANCE(Hibernate) -->
-    <jpa:repositories base-package = "com.valentine1996.pharmacy" />
+    <jpa:repositories base-package = "com.valentine1996.pharmacy.model.repository" />
 
     <!-- Data source -->
     <context:property-placeholder location="classpath:configuration/persistence.properties"/>
@@ -62,7 +62,6 @@
         <property name = "showSql" value = "true" />
         <property name = "generateDdl" value = "true" />
         <property name = "database" value = "MYSQL" />
-
     </bean>
 
     <bean

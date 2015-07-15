@@ -57,20 +57,17 @@ public class Profit implements Serializable {
     @Column( name = "month", length = 16 )
     protected String month;
 
-    @NotNull
     @Range
     @Column( name = "profit")
-    protected Double profit;
+    protected double profit;
 
-    @NotNull
     @Range
     @Column( name = "PH")
-    protected Double PH;
+    protected double PH;
 
-    @NotNull
     @Range
     @Column( name = "GI")
-    protected Double GI;
+    protected double GI;
 
     @Range
     @Column( name = "GI_bonus")
@@ -88,10 +85,9 @@ public class Profit implements Serializable {
     @Column( name = "GI_another2")
     protected double GIAnother2;
 
-    @NotNull
     @Range
     @Column( name = "GI_total")
-    protected Double GITotal;
+    protected double GITotal;
 
     /// *** Methods     *** ///
 
@@ -120,14 +116,14 @@ public class Profit implements Serializable {
         Year year,
         Pharmacy pharmacy,
         String month, 
-        Double profit, 
-        Double PH, 
-        Double GI, 
-        Double GIBonus, 
-        Double GIDeposit, 
-        Double GIAnother1, 
-        Double GIAnother2, 
-        Double GITotal) {
+        double profit,
+        double PH,
+        double GI,
+        double GIBonus,
+        double GIDeposit,
+        double GIAnother1,
+        double GIAnother2,
+        double GITotal) {
         
         this.year = year;
         this.pharmacy = pharmacy;
@@ -185,7 +181,7 @@ public class Profit implements Serializable {
      *
      * @return Double profit
      */
-    public Double getProfit() {
+    public double getProfit() {
         return profit;
     }
 
@@ -194,7 +190,7 @@ public class Profit implements Serializable {
      *
      * @return Double PH
      */
-    public Double getPH() {
+    public double getPH() {
         return PH;
     }
 
@@ -203,7 +199,7 @@ public class Profit implements Serializable {
      *
      * @return Double GI
      */
-    public Double getGI() {
+    public double getGI() {
         return GI;
     }
 
@@ -248,7 +244,7 @@ public class Profit implements Serializable {
      *
      * @return Double GI + total
      */
-    public Double getGITotal() {
+    public double getGITotal() {
         return GITotal;
     }
 
@@ -295,7 +291,7 @@ public class Profit implements Serializable {
      *
      * @param profit
      */
-    public void setProfit(Double profit) {
+    public void setProfit(double profit) {
         this.profit = profit;
     }
 
@@ -304,7 +300,7 @@ public class Profit implements Serializable {
      *
      * @param PH
      */
-    public void setPH(Double PH) {
+    public void setPH(double PH) {
         this.PH = PH;
     }
 
@@ -313,7 +309,7 @@ public class Profit implements Serializable {
      *
      * @param GI
      */
-    public void setGI(Double GI) {
+    public void setGI(double GI) {
         this.GI = GI;
     }
 
@@ -358,7 +354,7 @@ public class Profit implements Serializable {
      *
      * @param GITotal
      */
-    public void setGITotal(Double GITotal) {
+    public void setGITotal(double GITotal) {
         this.GITotal = GITotal;
     }
 }

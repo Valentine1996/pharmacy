@@ -62,4 +62,76 @@ public interface ProfitService {
      * @param id Identificator of Profit
      */
     public void delete( Long id );
+
+    /**
+     * Get sum of profits
+     *
+     * @param month
+     * @param year
+     * @return
+     */
+    public Double getSumOfProfitByMonthAndYear( String month, Integer year);
+
+    /**
+     * Get sum of profits
+     *
+     * @param month
+     * @param year
+     * @param legalForm
+     * @param consider
+     * @return
+     */
+    public Double getSumOfProfitByMonAndYearAndLegalFormAndCC( String month,
+                                                               Integer year,
+                                                               String legalForm,
+                                                               Boolean consider);
+
+    /**
+     * Get count of profit
+     *
+     * @param month
+     * @param year
+     * @param legalForm
+     * @param consider
+     * @return
+     */
+    public Integer getCountOfProfitByMonAndYearAndLegalFormAndCC(String month,
+                                                                Integer year,
+                                                                String legalForm,
+                                                                Boolean consider);
+    /**
+     * Get sum of profit
+     *
+     * @param month
+     * @param year
+     * @param consider
+     * @return
+     */
+    public Double getSumOfProfitByMonAndYearAndCC(String month,
+                                                  Integer year,
+                                                  Boolean consider);
+
+    /**
+     * Get count of profit
+     *
+     * @param month
+     * @param year
+     * @param consider
+     * @return
+     */
+    public Integer getCountOfProfitByMonAndYearAndCC(String month,
+                                                    Integer year,
+                                                    Boolean consider);
+
+    /**
+     * Get profit by month and year
+     *
+     * @param month
+     * @param year
+     * @param shortName
+     * @return Profit
+     */
+    public Profit findByMonthAndYearAndPharmacy( String month,
+                                                 Integer year, 
+                                                 String shortName);
 }

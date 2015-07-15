@@ -41,6 +41,16 @@ public class PharmacyServiceImpl implements PharmacyService {
     }
 
     /**
+     * Find pharmacy's short names for page
+     *
+     * @return List < Pharmacy > List of Pharmacies
+     */
+    @Override
+    public List < String > getAllShortNames() {
+        return this.pharmacyRepository.getAllShortNames();
+    }
+
+    /**
      * Create
      *
      * @param pharmacy Data for create new Pharmacy

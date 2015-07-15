@@ -81,4 +81,108 @@ public class ProfitServiceImpl implements ProfitService {
     public void delete(Long id) {
         this.profitRepository.delete(id);
     }
+
+    /**
+     * Get sum of profits
+     *
+     * @param month
+     * @param year
+     * @return
+     */
+    @Override
+    public Double getSumOfProfitByMonthAndYear(String month, Integer year) {
+        return this.profitRepository.getSumOfProfitByMonthAndYear(month, year);
+    }
+
+    /**
+     * Get sum of profits
+     *
+     * @param month
+     * @param year
+     * @param legalForm
+     * @return
+     */
+    @Override
+    public Double getSumOfProfitByMonAndYearAndLegalFormAndCC(
+                                                         String month,
+                                                         Integer year, 
+                                                         String legalForm,
+                                                         Boolean consider) {
+        return this.profitRepository.
+            getSumOfProfitByMonAndYearAndLegalFormAndCC(month,
+                                                        year,
+                                                        legalForm,
+                                                        consider);
+    }
+
+    /**
+     * Get count of profit
+     *
+     * @param month
+     * @param year
+     * @param legalForm
+     * @param consider
+     * @return
+     */
+    @Override
+    public Integer getCountOfProfitByMonAndYearAndLegalFormAndCC(String month,
+                                                                Integer year, 
+                                                                String legalForm, 
+                                                                Boolean consider) {
+        return this.profitRepository.
+            getCountOfProfitByMonAndYearAndLegalFormAndCC( month,
+                                                           year,
+                                                           legalForm,
+                                                           consider);
+    }
+
+    /**
+     * Get sum of profit
+     *
+     * @param month
+     * @param year
+     * @param consider
+     * @return
+     */
+    @Override
+    public Double getSumOfProfitByMonAndYearAndCC(String month, 
+                                                  Integer year, 
+                                                  Boolean consider) {
+        return this.profitRepository.
+            getSumOfProfitByMonAndYearAndCC( month, 
+                                             year,
+                                             consider);
+    }
+
+    /**
+     * Get count of profit
+     *
+     * @param month
+     * @param year
+     * @param consider
+     * @return
+     */
+    @Override
+    public Integer getCountOfProfitByMonAndYearAndCC(String month, Integer year, Boolean consider) {
+        return this.profitRepository.
+            getCountOfProfitByMonAndYearAndCC( month,
+                                               year,
+                                               consider);
+    }
+
+    /**
+     * Get profit by month and year
+     *
+     * @param month
+     * @param year
+     * @param shortName
+     * @return Profit
+     */
+    @Override
+    public Profit findByMonthAndYearAndPharmacy(String month,
+                                                Integer year, 
+                                                String shortName) {
+        return this.profitRepository.
+            findByMonthAndYearAndPharmacy( month, year, shortName);
+    }
 }

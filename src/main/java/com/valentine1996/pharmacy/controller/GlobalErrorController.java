@@ -8,6 +8,6 @@ public class GlobalErrorController {
 
     @ExceptionHandler(Exception.class)
     public String exceptionHandler(Exception e){
-        return "error";
+         return "error";
     }
 }

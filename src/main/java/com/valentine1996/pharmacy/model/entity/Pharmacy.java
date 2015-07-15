@@ -34,7 +34,7 @@ import org.hibernate.validator.constraints.NotEmpty;
     uniqueConstraints = @UniqueConstraint(
         columnNames = {
             "name",
-            "shortname"
+            "shortName"
         }
     )
 )
@@ -55,7 +55,7 @@ public class Pharmacy implements Serializable {
     @NotNull
     @NotEmpty
     @Length( max = 32 )
-    @Column( name = "shortname", length = 32 )
+    @Column( name = "shortName", length = 32 )
     protected String shortName;
 
     @NotNull

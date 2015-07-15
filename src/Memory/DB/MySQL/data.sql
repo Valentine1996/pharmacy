@@ -54,7 +54,7 @@ VALUES (1, '%Ввсі'),
        (19, 'КД11'),
        (20, 'Сим');
 
-INSERT INTO pharmacy(id, shortname, name, legal_form, region, calculation_consider)
+INSERT INTO pharmacy(id, shortName, name, legal_form, region, calculation_consider)
 VALUES  (1, 'Д','Дністровська1','ФОП','Ів.-фр. обл.', 1),
         (2, 'В','Дністровська2','ФОП','Ів.-фр. обл.', 1),
         (3, 'Ш','Дністровська3','ФОП','Ів.-фр. обл.', 1),
@@ -67,14 +67,14 @@ VALUES  (1, 'Д','Дністровська1','ФОП','Ів.-фр. обл.', 1),
         (10, 'СС24','Дністровська10','ПП','Ів.-фр. обл.', 1),
         (11, 'КД11','Дністровська11','ПП','Ів.-фр. обл.', 1);
 
-INSERT INTO expense (id, month, year_id, accounting_system_id, income, distribution_way_id, income_expense_clause_id, name, sum)
-VALUES  (1, 'лютий', 5 , 2, 0, 1, 5, 'ЗП за лютий', 16640.09),
-        (2, 'березень', 5 , 2, 0, 1, 5, 'ЗП за березень', 17269.80),
-        (3, 'квітень', 5 , 2, 0, 1, 5, 'ЗП за квітень', 17443.61),
-        (4, 'травень', 5 , 2, 0, 1, 5, 'ЗП за травень', 19540.09);
-
-INSERT INTO profit ( month , year_id, pharmacy_id, profit, PH, GI, GI_BONUS, GI_DEPOSIT, GI_ANOTHER1, GI_ANOTHER2, GI_TOTAL)
-VALUES  ('січень', 5, 1, 279382.22, 15.37, 42943.51, 0, 0, 0, 0, 42943.51),
-        ('січень', 5, 2, 58814.49, 15.72, 9243.09, 0, 0, 0, 0, 9243.09),
-        ('січень', 5, 3, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0.00),
-        ('січень', 5, 4, 148567.45, 12.12, 18001.12, 0, 0, 0, 0, 18001.12);
+INSERT INTO expense (id, month, year_id, accounting_system_id, income, distribution_way_id, income_expense_clause_id, name, suma)
+VALUES (1, 'лютий', 5 , 2, 0, 1, 5, 'ЗП за лютий', 16640.09),
+       (2, 'березень', 5 , 2, 0, 1, 5, 'ЗП за березень', 17269.80),
+       (3, 'квітень', 5 , 2, 0, 1, 5, 'ЗП за квітень', 17443.61),
+       (4, 'травень', 5 , 2, 0, 1, 5, 'ЗП за травень', 19540.09);
+  
+INSERT INTO profit ( id,month , year_id, pharmacy_id, profit, PH, GI, GI_BONUS, GI_DEPOSIT, GI_ANOTHER1, GI_ANOTHER2, GI_TOTAL)
+VALUES  (1, 'січень', 5, 1, 279382.22, 15.37, 42943.51, 0, 0, 0, 0, 42943.51),
+        (2, 'січень', 5, 2, 58814.49, 15.72, 9243.09, 0, 0, 0, 0, 9243.09),
+        (3, 'січень', 5, 3, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0.00),
+        (4, 'січень', 5, 4, 148567.45, 12.12, 18001.12, 0, 0, 0, 0, 18001.12);

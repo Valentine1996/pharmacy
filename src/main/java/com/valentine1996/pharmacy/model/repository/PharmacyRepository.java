@@ -16,6 +16,9 @@ package com.valentine1996.pharmacy.model.repository;
 
 import com.valentine1996.pharmacy.model.entity.Pharmacy;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /**
  * Interface for work with persistence layout
@@ -24,4 +27,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface PharmacyRepository extends JpaRepository < Pharmacy, Long> {
     public Pharmacy findByShortName(String name);
+
+    @Query(value = 
+        "SELECT ph.shortName " +
+        "FROM Pharmacy ph")
+    public List< String > getAllShortNames();
 }

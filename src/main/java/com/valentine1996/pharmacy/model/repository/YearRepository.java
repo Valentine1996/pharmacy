@@ -25,4 +25,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface YearRepository extends JpaRepository < Year, Long > {
     public Year findByName(Integer name);
+
 }

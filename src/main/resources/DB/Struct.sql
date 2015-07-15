@@ -101,7 +101,7 @@ CREATE TABLE expense(
 
     name          VARCHAR( 100 ) NOT NULL,
 
-    sum           DOUBLE NOT NULL,
+    suma           DOUBLE NOT NULL,
 
     income        BOOLEAN NOT NULL,
 
