@@ -1,6 +1,7 @@
 package com.valentine1996.model.entity;
 
 import com.valentine1996.model.ContextAbstractModel;
+import com.valentine1996.pharmacy.model.entity.Expense;
 import com.valentine1996.pharmacy.model.entity.Pharmacy;
 import com.valentine1996.pharmacy.model.entity.Profit;
 import com.valentine1996.pharmacy.model.entity.Year;
@@ -45,10 +46,15 @@ public class ExpenseTest extends ContextAbstractModel{
           List < String > months = new ArrayList<>();
 
           months.add("січень");
-          months.add("лютий");
+        months.add("лютий");
 
-        List < SimpleExpense > expenses 
-            = expenseRepository.getTotalExpenseSumByMonthsAndYear( months, 2014);
+        List < String > clauses = new ArrayList<>();
+
+        clauses.add("КП");
+        clauses.add("ОЗ");
+
+        List <Expense> expenses
+            = expenseRepository.test(clauses,null, null, 100.0, null,  months, null);
 //        List<SimpleProfit> profLists
 //            = profitRepository.
 //            getSumsByMonthsAndYearAndLegalFormGroupByPhShortName(months, 2014, "ТОВ");
