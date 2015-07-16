@@ -4,6 +4,9 @@ import com.valentine1996.model.ContextAbstractModel;
 import com.valentine1996.pharmacy.model.entity.Pharmacy;
 import com.valentine1996.pharmacy.model.entity.Profit;
 import com.valentine1996.pharmacy.model.entity.Year;
+import com.valentine1996.pharmacy.model.help.SimpleExpense;
+import com.valentine1996.pharmacy.model.help.SimpleProfit;
+import com.valentine1996.pharmacy.model.repository.ExpenseRepository;
 import com.valentine1996.pharmacy.model.repository.ProfitRepository;
 import com.valentine1996.pharmacy.model.service.PharmacyService;
 import com.valentine1996.pharmacy.model.service.ProfitService;
@@ -34,6 +37,9 @@ public class ExpenseTest extends ContextAbstractModel{
     @Autowired
     ProfitRepository profitRepository;
 
+    @Autowired
+    ExpenseRepository expenseRepository;
+
     @Test
     public void testExpenseFormFieldsSuccess(){
           List < String > months = new ArrayList<>();
@@ -41,7 +47,16 @@ public class ExpenseTest extends ContextAbstractModel{
           months.add("січень");
           months.add("лютий");
 
-        Double sum = profitRepository.getSumOfProfitByMonthsAndYear(months, 2014);
+        List < SimpleExpense > expenses 
+            = expenseRepository.getTotalExpenseSumByMonthsAndYear( months, 2014);
+//        List<SimpleProfit> profLists
+//            = profitRepository.
+//            getSumsByMonthsAndYearAndLegalFormGroupByPhShortName(months, 2014, "ТОВ");
+//        List < SimpleProfit> baseProfit
+//            = profitRepository.getSumsByMonthsAndYear(months, 2014);
+//            = profitRepository.findByMonthsAndYearAndPharmacy( months, 2014);
+//        Double sum = profitRepository.
+//            getSumOfProfitByMonthsAndYearAndLegalForm(months, 2014, "ФОП");
 //        Double sumTOV 
 //            = profitService.getSumOfProfitByMonAndYearAndLegalFormAndCC("січень",
 //            2014,

@@ -16,6 +16,7 @@
 package com.valentine1996.pharmacy.model.service;
 
 import com.valentine1996.pharmacy.model.entity.Profit;
+import com.valentine1996.pharmacy.model.help.SimpleProfit;
 
 import java.util.List;
 
@@ -134,4 +135,42 @@ public interface ProfitService {
     public Profit findByMonthAndYearAndPharmacy( String month,
                                                  Integer year, 
                                                  String shortName);
+
+    /**
+     * Get total sums by month and year group by pharmacy short name
+     * @param months
+     * @param year
+     * @return
+     */
+    List < SimpleProfit > getSumsByMonthsAndYearGroupByPhShortName( List < String > months,
+                                                                    Integer year);
+
+    /**
+     * Get sum of profit parameters by months and year
+     * @param months
+     * @param year
+     * @return
+     */
+    SimpleProfit getSumsByMonthsAndYear( List < String > months,
+                                         Integer year);
+
+    /**
+     * Get sum of profit parameters by months and year Group By legal form
+     * @param months
+     * @param year
+     * @return
+     */
+    List < SimpleProfit > getSumsByMonthsAndYearGroupByLegalForm( List < String > months,
+                                                                  Integer year);
+
+    /**
+     * Get sum of profit parameters by months and year and legal form group by short name
+     * @param months
+     * @param year
+     * @return
+     */
+    List < SimpleProfit > 
+         getSumsByMonthsAndYearAndLegalFormGroupByPhShortName(List < String > months,
+                                                              Integer year,
+                                                              String legalForm);
 }

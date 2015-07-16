@@ -11,6 +11,7 @@
 package com.valentine1996.pharmacy.model.service.implementation;
 
 import com.valentine1996.pharmacy.model.entity.Profit;
+import com.valentine1996.pharmacy.model.help.SimpleProfit;
 import com.valentine1996.pharmacy.model.repository.ProfitRepository;
 import com.valentine1996.pharmacy.model.service.ProfitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -163,7 +164,9 @@ public class ProfitServiceImpl implements ProfitService {
      * @return
      */
     @Override
-    public Integer getCountOfProfitByMonAndYearAndCC(String month, Integer year, Boolean consider) {
+    public Integer getCountOfProfitByMonAndYearAndCC(String month, 
+                                                     Integer year, 
+                                                     Boolean consider) {
         return this.profitRepository.
             getCountOfProfitByMonAndYearAndCC( month,
                                                year,
@@ -184,5 +187,63 @@ public class ProfitServiceImpl implements ProfitService {
                                                 String shortName) {
         return this.profitRepository.
             findByMonthAndYearAndPharmacy( month, year, shortName);
+    }
+
+    /**
+     * Get total sums by month and year group by pharmacy short name
+     *
+     * @param months
+     * @param year
+     * @return
+     */
+    @Override
+    public List <SimpleProfit> getSumsByMonthsAndYearGroupByPhShortName(List<String> months, 
+                                                                        Integer year) {
+        return this.profitRepository.
+            getSumsByMonthsAndYearGroupByPhShortName(months, year);
+    }
+
+    /**
+     * Get sum of profit parameters by months and year
+     *
+     * @param months
+     * @param year
+     * @return
+     */
+    @Override
+    public SimpleProfit getSumsByMonthsAndYear(List<String> months, Integer year) {
+        return this.profitRepository.getSumsByMonthsAndYear(months, year);
+    }
+
+    /**
+     * Get sum of profit parameters by months and year Group By legal form
+     *
+     * @param months
+     * @param year
+     * @return
+     */
+    @Override
+    public List<SimpleProfit> getSumsByMonthsAndYearGroupByLegalForm(List<String> months, 
+                                                                     Integer year) {
+        return this.profitRepository.
+            getSumsByMonthsAndYearGroupByLegalForm(months, year);
+    }
+
+    /**
+     * Get sum of profit parameters by months and year and legal form group by short name
+     *
+     * @param months
+     * @param year
+     * @param legalForm
+     * @return
+     */
+    @Override
+    public List<SimpleProfit> getSumsByMonthsAndYearAndLegalFormGroupByPhShortName(List<String> months, 
+                                                                                   Integer year, 
+                                                                                   String legalForm) {
+        return this.profitRepository.
+            getSumsByMonthsAndYearAndLegalFormGroupByPhShortName( months,
+                                                                  year,
+                                                                  legalForm);
     }
 }

@@ -14,6 +14,7 @@
 package com.valentine1996.pharmacy.model.repository;
 
 import com.valentine1996.pharmacy.model.entity.Profit;
+import com.valentine1996.pharmacy.model.help.SimpleProfit;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -27,6 +28,7 @@ import java.util.List;
  */
 public interface ProfitRepository extends JpaRepository <Profit, Long>{
 
+    //- For calculation coefficient -//
     @Query(value = 
         "SELECT SUM(p.profit ) " +
         "FROM  Profit p JOIN p.year y " +
@@ -102,44 +104,78 @@ public interface ProfitRepository extends JpaRepository <Profit, Long>{
     //* Profit Income Filter*//
 
     /**
-     * Get sum of profit by months and year
+     * Get sum of profit parameters by months and year and group by pharmacy's short name
      * @param months
      * @param year
      * @return
      */
-    @Query(value =
-        "SELECT SUM(p.profit ) " +
-            "FROM  Profit p JOIN p.year y " +
-            "WHERE p.month IN :month AND y.name = :year")
-    Double getSumOfProfitByMonthsAndYear(@Param("month")
-                                         List < String > months,
-                                        @Param("year") Integer year);
+    @Query("SELECT NEW com.valentine1996.pharmacy.model.help.SimpleProfit (p.pharmacy.shortName, " +
+        "sum(p.profit), sum(p.GI), sum(p.GIBonus), sum(p.GIDeposit), " +
+        "sum(p.GIAnother1), sum(p.GIAnother2) )" +
+        "FROM Profit p FETCH ALL PROPERTIES " +
+        "WHERE p.month IN :months " +
+        "AND p.year.name = :year " +
+        "GROUP BY p.pharmacy.shortName")
+    List < SimpleProfit > getSumsByMonthsAndYearGroupByPhShortName(
+        @Param("months")
+        List< String > months,
+        @Param("year") Integer year);
 
     /**
-     * Get GI of profit by months and year
+     * Get sum of profit parameters by months and year
      * @param months
      * @param year
      * @return
      */
-    @Query(value =
-        "SELECT SUM(p.GI ) " +
-            "FROM  Profit p JOIN p.year y " +
-            "WHERE p.month IN :month AND y.name = :year")
-    Double getSumOfGIByMonthsAndYear(@Param("month")
-                                         List < String > months,
-                                         @Param("year") Integer year);
+    @Query("SELECT NEW com.valentine1996.pharmacy.model.help.SimpleProfit(" +
+        "sum(p.profit), sum(p.GI), sum(p.GIBonus), sum(p.GIDeposit), " +
+        "sum(p.GIAnother1), sum(p.GIAnother2) )" +
+        "FROM Profit p FETCH ALL PROPERTIES " +
+        "WHERE p.month IN :months " +
+        "AND p.year.name = :year")
+    SimpleProfit getSumsByMonthsAndYear(
+        @Param("months")
+        List< String > months,
+        @Param("year") Integer year);
 
     /**
-     * Get GIBonus of profit by months and year
+     * Get sum of profit parameters by months and year Group by legal form
      * @param months
      * @param year
      * @return
      */
-    @Query(value =
-        "SELECT SUM(p.GIBonus ) " +
-            "FROM  Profit p JOIN p.year y " +
-            "WHERE p.month IN :month AND y.name = :year")
-    Double getSumOfGIBonusByMonthsAndYear(@Param("month")
-                                     List < String > months,
-                                     @Param("year") Integer year);
+    @Query("SELECT NEW com.valentine1996.pharmacy.model.help.SimpleProfit(p.pharmacy.legalForm," +
+        "sum(p.profit), sum(p.GI), sum(p.GIBonus), sum(p.GIDeposit), " +
+        "sum(p.GIAnother1), sum(p.GIAnother2) )" +
+        "FROM Profit p FETCH ALL PROPERTIES " +
+        "WHERE p.month IN :months " +
+        "AND p.year.name = :year " +
+        "GROUP BY p.pharmacy.legalForm ")
+    List < SimpleProfit > getSumsByMonthsAndYearGroupByLegalForm(
+                                            @Param("months")
+                                            List< String > months,
+                                            @Param("year") Integer year);
+
+    /**
+     * Get sum of profit parameters by months and year and legal form group by short name
+     * @param months
+     * @param year
+     * @return
+     */
+    @Query("SELECT NEW com.valentine1996.pharmacy.model.help.SimpleProfit (p.pharmacy.shortName, " +
+        "sum(p.profit), sum(p.GI), sum(p.GIBonus), sum(p.GIDeposit), " +
+        "sum(p.GIAnother1), sum(p.GIAnother2) )" +
+        "FROM Profit p FETCH ALL PROPERTIES " +
+        "WHERE p.month IN :months " +
+        "AND p.year.name = :year " +
+        "AND p.pharmacy.legalForm = :legalForm " +
+        "GROUP BY p.pharmacy.shortName")
+    List < SimpleProfit > getSumsByMonthsAndYearAndLegalFormGroupByPhShortName(
+        @Param("months")
+        List< String > months,
+        @Param("year") Integer year,
+        @Param("legalForm") String legalForm);
+
+    
+
 }
