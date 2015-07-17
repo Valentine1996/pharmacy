@@ -58,14 +58,6 @@
                 </li>
                 <li class="divider"></li>
                 <li class="dropdown-submenu">
-                    <a tabindex="-1" href="#">Cпосіб розподілу</a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="/disway/list">Cписок</a></li>
-                        <li><a href="/disway/createForm">Створити</a></li>
-                    </ul>
-                </li>
-                <li class="divider"></li>
-                <li class="dropdown-submenu">
                     <a tabindex="-1" href="#">Аптека</a>
                     <ul class="dropdown-menu">
                         <li><a tabindex="-1" href="/pharmacy/list">Cписок</a></li>
