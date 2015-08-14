@@ -58,6 +58,8 @@ CREATE TABLE profit(
 
     pharmacy_id   BIGINT( 20 ) NOT NULL,
 
+    month         VARCHAR( 16 )  NOT NULL,
+
     profit        DOUBLE NOT NULL,
 
     PH            DOUBLE NOT NULL,

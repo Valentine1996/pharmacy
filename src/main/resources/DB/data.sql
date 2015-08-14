@@ -73,7 +73,7 @@ VALUES (1, 'січень', 5 , 2, 0, 1, 5, 'ЗП за ', 100),
        (3, 'лютий', 5 , 2, 0, 1, 3, 'ЗП за ', 100),
        (4, 'березень', 5 , 2, 0, 1, 2, 'ЗП за ', 200);
   
-INSERT INTO profit ( id,month , year_id, pharmacy_id, profit, PH, GI, GI_bonus, GI_deposit, GI_another1, GI_another2, GI_total)
+INSERT INTO profit ( id, month , year_id, pharmacy_id, profit, PH, GI, GI_bonus, GI_deposit, GI_another1, GI_another2, GI_total)
 VALUES  (1, 'січень', 5, 1, 100, 15.37, 42943.51, 0, 0, 0, 0, 42943.51),
         (2, 'січень', 5, 2, 100, 15.72, 9243.09, 0, 0, 0, 0, 9243.09),
         (3, 'січень', 5, 10, 100, 0.00, 0.00, 0, 0, 0, 0, 0.00),
