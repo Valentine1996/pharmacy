@@ -30,6 +30,24 @@ USE pharmacy_finance;
 /* //- SECTION :: TABLES -// */
 
 /** *** *** *** *** *** *** *** *** *** *
+ * User
+ *  --- --- --- --- --- --- --- --- --- *
+ * Data about users
+*/
+
+CREATE TABLE user(
+    id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
+
+    user_name VARCHAR(50) NOT NULL,
+
+    password VARCHAR(50) NOT NULL,
+
+    enabled BOOLEAN NOT NULL,
+
+    PRIMARY KEY( id )
+) ENGINE = InnoDB CHARACTER SET = utf8;
+
+/** *** *** *** *** *** *** *** *** *** *
  * Role
  *  --- --- --- --- --- --- --- --- --- *
  * Content data about roles.
@@ -37,6 +55,18 @@ USE pharmacy_finance;
 * *** *** *** *** *** *** *** *** *** *** /
 */
 
+CREATE TABLE role(
+  id            BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
+
+  user_id       BIGINT( 20 ) NOT NULL,
+
+  authority     VARCHAR(45) NOT NULL,
+
+  PRIMARY KEY( id ),
+
+  FOREIGN KEY (user_id) REFERENCES user ( id )
+
+) ENGINE = InnoDB CHARACTER SET = utf8;
 
 
 /** *** *** *** *** *** *** *** *** *** *
@@ -53,7 +83,6 @@ CREATE TABLE year(
     PRIMARY KEY( id )
 )
 ENGINE = InnoDB CHARACTER SET = utf8;
-
 
 /** *** *** *** *** *** *** *** *** *** *
  * Accounting_system
@@ -135,6 +164,8 @@ CREATE TABLE profit(
     year_id       BIGINT( 20 ) NOT NULL,
 
     pharmacy_id   BIGINT( 20 ) NOT NULL,
+
+     month         VARCHAR( 16 )  NOT NULL,
 
     profit        DOUBLE NOT NULL,
 

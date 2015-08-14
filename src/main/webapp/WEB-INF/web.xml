@@ -36,6 +36,12 @@
         </init-param>
     </filter>
 
+    <!-- Security -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
     <!-- SECTION :: MAPPER -->
     <!-- Request's encoding mapper -->
     <filter-mapping>
@@ -44,6 +50,11 @@
     </filter-mapping>
 
 
+    <!-- Security -->
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- MVC Dispatcher -->
     <servlet-mapping>
