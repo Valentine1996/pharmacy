@@ -84,8 +84,5 @@
             transaction-manager = "transactionManager"
             proxy-target-class = "true"
             />
-    <!--<bean-->
-            <!--id="persistenceExceptionTranslationPostProcessor"-->
-            <!--class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor">-->
 
 </beans>

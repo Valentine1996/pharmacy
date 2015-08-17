@@ -20,12 +20,20 @@
         <logout logout-success-url="/login?logout" />
     </http>
 
+    <!--<authentication-manager>-->
+        <!--<authentication-provider>-->
+            <!--<user-service> <user-->
+            <!--name="valentine" password="avatar" authorities="ROLE_ADMIN" />-->
+            <!--</user-service>-->
+        <!--</authentication-provider>-->
+    <!--</authentication-manager>-->
+
     <authentication-manager>
         <authentication-provider>
             <jdbc-user-service
                     data-source-ref="dataSource"
                     users-by-username-query=
-                            "SELECT user_name, password FROM user WHERE user_name=? "
+                            "SELECT user_name, password FROM user WHERE user_name= ? "
                     authorities-by-username-query=
                             "SELECT u.user_name, u.authority
                     FROM user u, role r
