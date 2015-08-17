@@ -4,6 +4,14 @@
 * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
 */
 
+INSERT  INTO user VALUES
+  (1, "valentine", "avatar", 1),
+  (2, "vitaliy", "vito", 1);
+
+INSERT INTO role VALUES
+  (1, 1, "ROLE_USER"),
+  (2, 2, "ROLE_ADMIN");
+
 INSERT INTO year
 VALUES    (1, 2010),
           (2, 2011),
