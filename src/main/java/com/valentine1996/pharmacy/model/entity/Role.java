@@ -12,7 +12,9 @@ import java.io.Serializable;
 @SuppressWarnings( "serial" )
 @Entity
 @Table(
-        name = "role"
+        name = "role",
+    uniqueConstraints = @UniqueConstraint(
+        columnNames = { "role", "username" })
 )
 public class Role implements Serializable {
     /// *** Properties  *** ///

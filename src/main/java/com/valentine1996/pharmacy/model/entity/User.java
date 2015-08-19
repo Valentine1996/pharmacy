@@ -3,7 +3,9 @@ package com.valentine1996.pharmacy.model.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Class for reflect table user from persistence layout
@@ -30,19 +32,23 @@ public class User implements Serializable {
     @Column(name="password")
     protected String password;
 
+    @Column(name = "enabled", nullable = false)
+    protected Boolean enabled;
+
     @OneToMany(
             fetch = FetchType.LAZY,
             mappedBy = "user",
             cascade = CascadeType.PERSIST
     )
-    protected List< Role > roles;
+    protected Set < Role > roles = new HashSet<>();
 
     public User() {
     }
 
-    public User(String username, String password, List<Role> roles) {
+    public User(String username, String password, Boolean enabled, Set<Role> roles) {
         this.username = username;
         this.password = password;
+        this.enabled = enabled;
         this.roles = roles;
     }
 
@@ -70,13 +76,19 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public List < Role > getRoles() {
+    public Boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles ( List < Role > roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
-
 }
