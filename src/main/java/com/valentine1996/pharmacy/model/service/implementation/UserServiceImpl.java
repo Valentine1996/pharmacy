@@ -73,10 +73,9 @@ public class UserServiceImpl implements UserService {
      * @return User Found
      */
     @Override
+    @SuppressWarnings("unchecked")
     public User findByUserName(String name) {
-        User user = new User();
-
-        user = userRepository.findByUserName( name );
+        User user = userRepository.findByUsername( name );
 
             return user;
     }

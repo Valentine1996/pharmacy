@@ -25,7 +25,7 @@ public class User implements Serializable {
     protected Long id;
 
     @NotNull
-    @Column(name = "username", unique=true)
+    @Column(name = "user_name", unique=true)
     protected String username;
 
     @NotNull
@@ -36,11 +36,10 @@ public class User implements Serializable {
     protected Boolean enabled;
 
     @OneToMany(
-            fetch = FetchType.LAZY,
-            mappedBy = "user",
-            cascade = CascadeType.PERSIST
+            fetch = FetchType.EAGER,
+            mappedBy = "user"
     )
-    protected Set < Role > roles = new HashSet<>();
+    protected Set < Role > roles = new HashSet<>(0);
 
     public User() {
     }
