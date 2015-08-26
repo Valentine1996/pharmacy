@@ -32,7 +32,7 @@
 
 
           <div class="panel-body">
-            <form:form  class ="form-horizontal"  method="POST"  action="j_spring_security_check" >
+            <form:form  class ="form-horizontal"  method="POST"  action="/j_spring_security_check" >
               <c:if test="${not empty error}">
                 <div >${error}</div>
               </c:if>
