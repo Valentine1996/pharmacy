@@ -9,8 +9,12 @@ INSERT  INTO user VALUES
   (2, "vitaliy", "vito", 1);
 
 INSERT INTO role VALUES
-  (1, 1, "ROLE_USER"),
-  (2, 2, "ROLE_ADMIN");
+  (1, "ROLE_USER"),
+  (2, "ROLE_ADMIN");
+  
+INSERT INTO user_roles VALUES
+  (1, 1),
+  (2, 2);
 
 INSERT INTO year
 VALUES    (1, 2010),

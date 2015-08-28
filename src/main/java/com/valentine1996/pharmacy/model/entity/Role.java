@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Table(
         name = "role",
     uniqueConstraints = @UniqueConstraint(
-        columnNames = { "authority", "user_id" })
+        columnNames = { "authority"})
 )
 public class Role implements Serializable {
     /// *** Properties  *** ///
@@ -23,10 +23,6 @@ public class Role implements Serializable {
     @Column( name = "id" )
     protected Long id;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn( name = "user_id" )
-    protected User user;
 
     @NotNull
     @Column(name = "authority")
@@ -36,8 +32,7 @@ public class Role implements Serializable {
     public Role() {
     }
 
-    public Role(User user, String authority) {
-        this.user = user;
+    public Role(String authority) {
         this.authority = authority;
     }
 
@@ -47,14 +42,6 @@ public class Role implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public String getAuthority() {

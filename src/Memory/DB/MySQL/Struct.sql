@@ -58,14 +58,25 @@ CREATE TABLE user(
 CREATE TABLE role(
   id            BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-  user_id       BIGINT( 20 ) NOT NULL,
-
   authority     VARCHAR(45) NOT NULL,
 
-  PRIMARY KEY( id ),
+  PRIMARY KEY( id )
 
-  FOREIGN KEY (user_id) REFERENCES user ( id )
+) ENGINE = InnoDB CHARACTER SET = utf8;
 
+CREATE TABLE user_roles(
+
+  user_id       BIGINT( 20 ) NOT NULL,
+
+  role_id       BIGINT( 20 ) NOT NULL,
+  
+  FOREIGN KEY( user_id ) REFERENCES user( id )
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+  FOREIGN KEY( role_id ) REFERENCES role( id )
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8;
 
 

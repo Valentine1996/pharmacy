@@ -35,9 +35,23 @@ public class User implements Serializable {
     @Column(name = "enabled", nullable = false)
     protected Boolean enabled;
 
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "user"
+    @OneToMany( fetch = FetchType.EAGER, cascade = CascadeType.PERSIST )
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = {
+            @JoinColumn(
+                name = "user_id",
+                nullable = false,
+                updatable = false
+            )
+        },
+        inverseJoinColumns = {
+            @JoinColumn(
+                name = "role_id",
+                nullable = false,
+                updatable = false
+            )
+        }
     )
     protected Set < Role > roles = new HashSet<>(0);
 
