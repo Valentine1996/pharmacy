@@ -17,25 +17,14 @@
 package com.valentine1996.pharmacy.controller;
 
 
-import com.valentine1996.pharmacy.model.entity.AccountingSystem;
-import com.valentine1996.pharmacy.model.entity.Profit;
-import com.valentine1996.pharmacy.model.entity.Year;
-import com.valentine1996.pharmacy.model.help.Coefficient;
-import com.valentine1996.pharmacy.model.service.PharmacyService;
-import com.valentine1996.pharmacy.model.service.ProfitService;
-import com.valentine1996.pharmacy.model.service.YearService;
-import com.valentine1996.pharmacy.model.service.implementation.AccountingSystemServiceImpl;
-import org.hibernate.exception.ConstraintViolationException;
+import com.valentine1996.pharmacy.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Controller for Authentication and Authorization
@@ -44,6 +33,9 @@ import java.util.List;
  */
 @Controller
 public class SecurityController {
+    @Autowired
+    BCryptPasswordEncoder encoder;
+
     @RequestMapping("login")
     public String getLoginForm(
             @RequestParam(value = "error", required = false) String error,
@@ -57,4 +49,21 @@ public class SecurityController {
         }
         return "login";
     }
+    @RequestMapping("signin")
+    public String getRegistrationForm(){
+        return "registration";
+    }
+
+    @RequestMapping("addUser")
+    public String addUser(@ModelAttribute User user, ModelMap model){
+
+        user.setFirstName(user.getFirstName().trim());
+        user.setLastName(user.getLastName().trim());
+        user.setEmail(user.getEmail().trim());
+        user.setEnabled(true);
+            //-Crypt a password-//
+        user.setPassword(encoder.encode(user.getPassword()));
+        return "";
+    }
+
 }

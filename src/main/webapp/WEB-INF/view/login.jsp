@@ -40,9 +40,9 @@
                 <div >${msg}</div>
               </c:if>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Введіть логін</label>
+                <label class="control-label col-sm-2" for="login">Введіть логін</label>
                 <div class="col-sm-5 ">
-                  <input class="form-control" id="username" type = "text" name="username">
+                  <input class="form-control" id="login" type = "text" name="login">
                 </div>
               </div>
               <div class="form-group">
@@ -53,6 +53,7 @@
               </div>
               <button type="submit" class="btn btn-default">Зайти</button>
             </form:form>
+              <a href="/signin">Зареєструватися</a>
           </div>
           <!-- /.panel-body -->
         </div>

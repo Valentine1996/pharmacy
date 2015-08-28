@@ -38,9 +38,15 @@ USE pharmacy_finance;
 CREATE TABLE user(
     id          BIGINT( 20 ) NOT NULL AUTO_INCREMENT,
 
-    user_name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(32) NOT NULL,
 
-    password VARCHAR(50) NOT NULL,
+    last_name VARCHAR(32) NOT NULL,
+
+    login VARCHAR(32) NOT NULL,
+
+    email VARCHAR(32) NOT NULL,
+
+    password VARCHAR NOT NULL,
 
     enabled BOOLEAN NOT NULL,
 

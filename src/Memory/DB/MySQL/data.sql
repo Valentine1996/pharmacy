@@ -3,15 +3,13 @@
 *
 * @author Valentyn Namisnyk <valentunnamisnuk@gmail.com>
 */
-
-INSERT  INTO user VALUES
-  (1, "valentine", "avatar", 1),
-  (2, "vitaliy", "vito", 1);
+INSERT INTO user VALUES 
+(1, "Valentyn", "Namisnyk", "valentine", "Valentyn_Prodyser@ukr.net", "$2a$10$RLmDHa6gRtT18NZ1vuuLLeideyES/wiFxF18X0TEXeDPNlx87FoLO", 1),
+(2, "Vitaliy", "Zuzman", "coffeine", "hui@ukr.net", "$2a$10$JYFjbS800kQ2iVz2hbOc6.wAV650q5mHoD9thQr48K6TsHLMa.Lty", 1);
 
 INSERT INTO role VALUES
-  (1, "ROLE_USER"),
-  (2, "ROLE_ADMIN");
-  
+(1, "ROLE_USER"),
+(2, "ROLE");
 INSERT INTO user_roles VALUES
   (1, 1),
   (2, 2);

@@ -45,10 +45,10 @@ public interface UserService {
     /**
      * Find User by name
      *
-     * @param name
+     * @param login
      * @return User Found
      */
-    public User findByUserName(String name);
+    public User findByLogin(String login);
 
     /**
      * Delete
