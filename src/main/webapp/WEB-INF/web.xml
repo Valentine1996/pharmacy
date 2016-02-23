@@ -11,6 +11,7 @@
         <param-value>
             /WEB-INF/spring/development/spring_context.xml
             /WEB-INF/spring/development/security.xml
+            /WEB-INF/spring/development/config_social.xml
         </param-value>
     </context-param>
 

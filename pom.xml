@@ -74,6 +74,11 @@
         <httpcore.version>4.3.2</httpcore.version>
         <httpclient.version>4.3.3</httpclient.version>
         <dbcp.version>2.1</dbcp.version>
+
+        <!-- Social -->
+        <spring.social.version>1.1.0.RELEASE</spring.social.version>
+        <spring.social.facebook.version>1.1.0.RELEASE</spring.social.facebook.version>
+        <spring.social.twitter.version>1.1.0.RELEASE</spring.social.twitter.version>
     </properties>
 
     <dependencies>
@@ -170,7 +175,58 @@
             <version>${spring.security.version}</version>
         </dependency>
 
+        <!-- Spring Social -->
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-config</artifactId>
+            <version>${spring.social.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-core</artifactId>
+            <version>${spring.social.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-security</artifactId>
+            <version>${spring.social.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-web</artifactId>
+            <version>${spring.social.version}</version>
+        </dependency>
+        <!-- Spring Social Facebook -->
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-facebook</artifactId>
+            <version>${spring.social.facebook.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-social-core</artifactId>
+                    <groupId>org.springframework.social</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-social-config</artifactId>
+                    <groupId>org.springframework.social</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Spring Social Twitter -->
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-twitter</artifactId>
+            <version>${spring.social.twitter.version}</version>
+        </dependency>
 
+
+        <!-- Use Apache HttpClient as HTTP Client -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+        
         <!-- CONFIGURATION -->
 
         <!-- JSON :: JACKSON -->
