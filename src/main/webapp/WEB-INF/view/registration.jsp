@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="lastName">
-                            Name
+                            Last name
                         </label>
                         <div class="col-xs-5">
                             <input type="text" class="form-control" id="lastName" name="lastName" />

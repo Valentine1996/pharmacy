@@ -32,7 +32,7 @@
 
 
           <div class="panel-body">
-            <form:form  class ="form-horizontal"  method="POST"  action="/j_spring_security_check" >
+            <form:form  class ="form-horizontal"  method="POST"  action="j_spring_security_check" >
               <c:if test="${not empty error}">
                 <div >${error}</div>
               </c:if>
@@ -53,7 +53,7 @@
               </div>
               <button type="submit" class="btn btn-default">Зайти</button>
             </form:form>
-              <a href="/signin">Зареєструватися</a>
+              <a href="/signup">Зареєструватися</a>
           </div>
           <!-- /.panel-body -->
         </div>
@@ -62,5 +62,8 @@
       <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+      
+      
   </tiles:putAttribute>
 </tiles:insertDefinition>
+

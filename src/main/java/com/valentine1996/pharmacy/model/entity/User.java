@@ -1,5 +1,6 @@
 package com.valentine1996.pharmacy.model.entity;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
@@ -15,10 +16,10 @@ import org.hibernate.validator.constraints.Length;
  *
  * @version 1.0
  */
-@SuppressWarnings( "serial" )
 @Entity
 @Table(
         name = "user"
+
 )
 public class User implements Serializable {
     /// *** Properties  *** ///
@@ -28,22 +29,22 @@ public class User implements Serializable {
     protected Long id;
 
     @NotNull
-    @Length( min = 2 , max = 32)
+    //@Length( min = 2 , max = 32)
     @Column(name = "first_name", unique=true)
     protected String firstName;
 
     @NotNull
-    @Length( min = 2 , max = 32)
+    //@Length( min = 2 , max = 32)
     @Column(name = "last_name", unique=true)
     protected String lastName;
 
     @NotNull
-    @Length( min = 8, max = 32)
+    //@Length( min = 8, max = 32)
     @Column(name = "login", unique=true)
     protected String login;
 
     @NotNull
-    @Email
+//    @Email
     @Column(name = "email", unique=true)
     protected String email;
 
@@ -54,25 +55,35 @@ public class User implements Serializable {
     @Column(name = "enabled", nullable = false)
     protected Boolean enabled;
 
-    @OneToMany( fetch = FetchType.EAGER, cascade = CascadeType.PERSIST )
+    @ManyToMany( fetch = FetchType.EAGER )
     @JoinTable(
+        
         name = "user_roles",
+        uniqueConstraints = @UniqueConstraint(
+            columnNames = {
+                "user_id",
+                "role_id"
+            }
+            
+        ),
         joinColumns = {
             @JoinColumn(
                 name = "user_id",
                 nullable = false,
+                unique = false,
                 updatable = false
             )
         },
         inverseJoinColumns = {
             @JoinColumn(
                 name = "role_id",
+                unique = false,
                 nullable = false,
                 updatable = false
             )
         }
     )
-    protected Set < Role > roles = new HashSet<>(0);
+    protected Set < Role > roles = new HashSet<>();
 
     public User() {
     }
@@ -140,4 +151,5 @@ public class User implements Serializable {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
 }

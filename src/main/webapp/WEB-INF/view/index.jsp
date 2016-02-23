@@ -321,22 +321,7 @@
 </div>
 <!-- /.row -->
 
-<!-- jQuery -->
-<script src="/resources/libs/jquery/dist/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/resources/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/resources/libs/metisMenu/dist/metisMenu.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="/resources/libs/raphael/raphael-min.js"></script>
-<script src="/resources/libs/morrisjs/morris.min.js"></script>
-<script src="/resources/assets/js/morris-data.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/resources/assets/js/sb-admin-2.js"></script>
 
 </tiles:putAttribute>
 </tiles:insertDefinition>

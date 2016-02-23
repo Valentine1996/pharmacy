@@ -41,6 +41,7 @@ public class ExpenseTest extends ContextAbstractModel{
     @Autowired
     ExpenseRepository expenseRepository;
 
+    @Ignore
     @Test
     public void testExpenseFormFieldsSuccess(){
           List < String > months = new ArrayList<>();

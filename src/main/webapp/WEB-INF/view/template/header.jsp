@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+ 
+ 
 <!-- Navigation -->
 
     <div class="navbar-header">
@@ -19,6 +23,7 @@
     </div>
     <!-- /.navbar-header -->
 
+ <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
     <ul class="nav navbar-top-links navbar-left">
         <li class="dropdown">
             <a id="dLabel"  data-toggle="dropdown" href="#">
@@ -95,10 +100,35 @@
         </li>
         <!-- /.dropdown -->
     </ul>
- <%--<li class="dropdown-submenu">--%>
- <%--<a href="#">Even More..</a>--%>
- <%--<ul class="dropdown-menu">--%>
- <%--<li><a href="#">3rd level</a></li>--%>
- <%--<li><a href="#">3rd level</a></li>--%>
- <%--</ul>--%>
- <%--</li>--%>
+     </sec:authorize>
+
+ <%--<sec:authorize access="isAnonymous()">--%>
+     <ul class="nav navbar-top-links navbar-right">
+         <li class="dropdown">
+             <a id="dLabel"  data-toggle="dropdown" href="#">
+                 Опції  <i class="fa fa-caret-down"></i>
+             </a>
+             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                 <li><a href="#">Helper</a></li>
+                 <li class="divider"></li>
+                 <li>
+                     <form action="/j_spring_security_logout" method="post" id="logoutForm">
+                         <input type="hidden"
+                            name="${_csrf.parameterName}"
+                            value="${_csrf.token}"
+                        />
+                         <button id="logout" name="logout" type="submit">
+                             Logout
+                         </button>
+                     </form>
+                 </li>
+             </ul>
+             <!-- /.dropdown-messages -->
+         </li>
+
+         <!-- /.dropdown -->
+
+         <!-- /.dropdown -->
+     </ul>
+<%--</sec:authorize>--%>
+     

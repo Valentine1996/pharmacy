@@ -12,9 +12,7 @@ import java.io.Serializable;
 @SuppressWarnings( "serial" )
 @Entity
 @Table(
-        name = "role",
-    uniqueConstraints = @UniqueConstraint(
-        columnNames = { "authority"})
+        name = "role"
 )
 public class Role implements Serializable {
     /// *** Properties  *** ///
@@ -25,11 +23,12 @@ public class Role implements Serializable {
 
 
     @NotNull
-    @Column(name = "authority")
+    @Column(name = "authority", unique = true)
     protected String authority;
 
 
     public Role() {
+        
     }
 
     public Role(String authority) {
@@ -51,4 +50,6 @@ public class Role implements Serializable {
     public void setAuthority(String authority) {
         this.authority = authority;
     }
+
+
 }

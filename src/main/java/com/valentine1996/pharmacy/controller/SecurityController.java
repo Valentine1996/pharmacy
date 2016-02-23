@@ -17,7 +17,10 @@
 package com.valentine1996.pharmacy.controller;
 
 
+import com.valentine1996.pharmacy.model.entity.Role;
 import com.valentine1996.pharmacy.model.entity.User;
+import com.valentine1996.pharmacy.model.service.RoleService;
+import com.valentine1996.pharmacy.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -36,6 +39,12 @@ public class SecurityController {
     @Autowired
     BCryptPasswordEncoder encoder;
 
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    RoleService roleService;
+
     @RequestMapping("login")
     public String getLoginForm(
             @RequestParam(value = "error", required = false) String error,
@@ -49,7 +58,7 @@ public class SecurityController {
         }
         return "login";
     }
-    @RequestMapping("signin")
+    @RequestMapping("signup")
     public String getRegistrationForm(){
         return "registration";
     }
@@ -59,11 +68,18 @@ public class SecurityController {
 
         user.setFirstName(user.getFirstName().trim());
         user.setLastName(user.getLastName().trim());
+        user.setLogin(user.getLogin().trim());
         user.setEmail(user.getEmail().trim());
         user.setEnabled(true);
             //-Crypt a password-//
         user.setPassword(encoder.encode(user.getPassword()));
-        return "";
+            //- Create role User-//
+        Role roleUser = roleService.find(1L);
+        user.getRoles().add(roleUser);
+        user.getRoles().add(roleUser);
+        userService.create(user);
+        
+        return "index";
     }
 
 }
